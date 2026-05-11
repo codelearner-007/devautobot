@@ -1,4 +1,4 @@
-import type { ServiceFeature } from '@/components/services/common/ServiceFeatures';
+import { ServiceFeature } from '@/components/services/common/ServiceFeatures';
 
 export const webDevelopmentFeatures: ServiceFeature[] = [
   {

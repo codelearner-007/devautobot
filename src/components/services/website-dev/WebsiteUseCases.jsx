@@ -3,7 +3,8 @@
 import {
   ShoppingCart, Rocket, Building2, UtensilsCrossed, Scale, GraduationCap,
 } from 'lucide-react';
-import ServiceUseCases, { type ServiceUseCaseConfig } from '@/components/services/common/ServiceUseCases';
+import ServiceUseCases from '@/components/services/common/ServiceUseCases';
+import type { ServiceUseCaseConfig } from '@/components/services/common/ServiceUseCases';
 import { useCases } from '@/data/use-cases/website-dev-use-cases';
 
 const config: ServiceUseCaseConfig[] = [

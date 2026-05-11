@@ -1,18 +1,17 @@
 # Devmanar Relaunch - Project Sketch & Implementation Plan
 
-This document outlines a step-by-step plan to create a similar AI-powered digital services agency website based on the Devmanar-relaunch project structure.
+This document outlines a step-by-step plan to create a similar AI-powered digital services agency website based on the Devmanar-relaunch project structure using JavaScript (not TypeScript).
 
 ## Phase 1: Project Setup & Foundation
 
 ### Step 1: Initialize Next.js Project
 ```bash
-# Create new Next.js 14 project with TypeScript
-npx create-next-app@latest my-agency-site --ts
+# Create new Next.js 14 project with JavaScript
+npx create-next-app@latest my-agency-site
 cd my-agency-site
 
 # Install required dependencies
 npm install framer-motion lucide-react tailwindcss postcss autoprefixer clsx tailwind-merge
-npm install -D @types/node @types/react @types/react-dom
 
 # Initialize Tailwind CSS
 npx tailwindcss init -p
@@ -23,8 +22,8 @@ Create the following directory structure:
 ```
 src/
 ├── app/
-│   ├── layout.tsx
-│   ├── page.tsx          # Home page
+│   ├── layout.jsx
+│   ├── page.jsx          # Home page
 │   ├── globals.css
 │   └── services/         # Service pages
 │       ├── service1/
@@ -46,15 +45,46 @@ src/
 │   ├── use-cases/
 │   └── demo/
 ├── lib/                  # Utility functions & shared logic
-│   ├── animations.ts
-│   ├── site.ts
-│   ├── types.ts
-│   └── utils.ts
+│   ├── animations.js
+│   ├── site.js
+│   ├── types.js
+│   └── utils.js
+└── styles/               # Additional styling if needed
+```
+src/
+├── app/
+│   ├── layout.jsx
+│   ├── page.jsx          # Home page
+│   ├── globals.css
+│   └── services/         # Service pages
+│       ├── service1/
+│       ├── service2/
+│       └── service3/
+├── components/
+│   ├── home/             # Home page components
+│   ├── layout/           # Navbar, Footer
+│   ├── services/         # Service-specific components
+│   │   ├── common/       # Shared service components
+│   │   └── [service-name]/ # Service-specific components
+│   └── ui/               # Reusable UI components
+├── data/                 # All content data (organized by type)
+│   ├── hero/
+│   ├── features/
+│   ├── process/
+│   ├── projects/
+│   ├── pricing/
+│   ├── use-cases/
+│   └── demo/
+├── lib/                  # Utility functions & shared logic
+│   ├── animations.js
+│   ├── site.js
+│   ├── types.js
+│   └── utils.js
 └── styles/               # Additional styling if needed
 ```
 
 ### Step 3: Configure Tailwind CSS
-Update `tailwind.config.ts` with:
+Update `tailwind.config.js` with:
 - Custom colors matching the design system
 - Custom animations (marquee, float, beam, etc.)
 - Custom box shadows (glow effects)
@@ -141,8 +171,8 @@ src/data/
 
 Each file exports typed data matching the component interfaces.
 
-### Step 11: Define TypeScript Types
-Create `src/lib/types.ts` with interfaces for:
+### Step 11: Define Component Types
+Create `src/lib/types.js` with JSDoc for:
 - Hero data
 - Feature items
 - Process steps

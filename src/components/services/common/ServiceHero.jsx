@@ -6,25 +6,6 @@ import { ArrowRight, ArrowLeft } from 'lucide-react';
 import TiltCard from '@/components/ui/TiltCard';
 import Container from '@/components/ui/Container';
 
-interface TrustStat {
-  label: string;
-  sub: string;
-}
-
-interface ServiceHeroProps {
-  badge: string;
-  badgeIcon?: React.ReactNode;
-  title: string;
-  description: string;
-  cta1: string;
-  cta2: string;
-  cta2Href?: string;
-  tags: string[];
-  glowColor: string;
-  visual: React.ReactNode;
-  trustStats?: TrustStat[];
-}
-
 export default function ServiceHero({
   badge,
   badgeIcon,
@@ -37,7 +18,7 @@ export default function ServiceHero({
   glowColor,
   visual,
   trustStats = [],
-}: ServiceHeroProps) {
+}) {
   return (
     <section className="relative min-h-[88vh] flex items-center overflow-hidden bg-background pt-20">
       {/* Background */}

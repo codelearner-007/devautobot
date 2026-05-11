@@ -1,11 +1,11 @@
 import { cn } from '@/lib/utils';
 
-interface ContainerProps {
+type ContainerProps = {
   children: React.ReactNode;
   className?: string;
   /** Override the max-width. Defaults to the site-wide standard. */
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
-}
+};
 
 const sizeMap = {
   sm:   'max-w-3xl',   // ~768px  — narrow prose / single-column CTA

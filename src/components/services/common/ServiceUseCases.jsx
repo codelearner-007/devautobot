@@ -2,36 +2,17 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, RotateCw, type LucideIcon } from 'lucide-react';
+import { ArrowRight, RotateCw, LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import Container from '@/components/ui/Container';
 
-export interface ServiceUseCaseConfig {
-  icon: LucideIcon;
-  iconColor: string;
-  iconBg: string;
-  glow: string;
-  ring: string;
-  tagBg: string;
-}
 
-export interface ServiceUseCase {
-  industry: string;
-  title: string;
-  description: string;
-}
-
-interface ServiceUseCasesProps {
-  useCases: ServiceUseCase[];
-  config: ServiceUseCaseConfig[];
-  description: string;
-}
 
 const COUNT = 6;
 const ORBIT_R = 165;
 const BOX = ORBIT_R * 2 + 140;
 
-function getCardPos(i: number) {
+function getCardPos(i) {
   const angle = ((i * 360) / COUNT - 90) * (Math.PI / 180);
   return {
     x: BOX / 2 + ORBIT_R * Math.cos(angle),
@@ -39,7 +20,7 @@ function getCardPos(i: number) {
   };
 }
 
-export default function ServiceUseCases({ useCases, config, description }: ServiceUseCasesProps) {
+export default function ServiceUseCases({ useCases, config, description }) {
   const [active, setActive] = useState(0);
   const [rotation, setRotation] = useState(0);
   const [spinning, setSpinning] = useState(false);
@@ -56,7 +37,7 @@ export default function ServiceUseCases({ useCases, config, description }: Servi
     return () => clearInterval(t);
   }, [paused]);
 
-  const pick = useCallback((i: number) => {
+  const pick = useCallback((i) => {
     setActive(i);
     manuallyPaused.current = true;
     setPaused(true);

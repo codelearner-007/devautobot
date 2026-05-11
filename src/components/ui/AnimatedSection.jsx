@@ -5,12 +5,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { cn } from '@/lib/utils';
 
-interface AnimatedSectionProps {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-  direction?: 'up' | 'left' | 'right' | 'none';
-}
+
 
 export default function AnimatedSection({
   children,

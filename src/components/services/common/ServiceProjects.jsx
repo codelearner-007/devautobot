@@ -24,7 +24,7 @@ export default function ServiceProjects({ projects }) {
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(1);
 
-  const go = (next: number) => {
+  const go = (next) => {
     setDirection(next > page ? 1 : -1);
     setPage(next);
   };

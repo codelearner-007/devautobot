@@ -62,7 +62,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center justify-center">
-              <Image src="/logo1.png" alt={site.name} width={150} height={100} className="h-15 w-auto object-contain " loading="eager" />
+              <Image src="/logo.png" alt={site.name} width={150} height={100} className="h-15 w-auto object-contain " loading="eager" />
               <span className="font-bold text-xl">{site.name}</span>
             </div>
           </Link>

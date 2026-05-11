@@ -7,34 +7,13 @@ import {
   ClipboardList, ClipboardCheck, PhoneCall, MessageSquare,
   CalendarCheck, BarChart2, GitBranch, UserCircle, FileText,
   Sparkles, Globe, CheckCircle2, Clock, ArrowRight, Lightbulb,
-  type LucideIcon,
+  LucideIcon,
 } from 'lucide-react';
 import Container from '@/components/ui/Container';
 
-export interface ProcessStep {
-  number: string;
-  title: string;
-  description: string;
-  icon: string;
-  accent: {
-    text: string;
-    bg: string;
-    border: string;
-    glow: string;
-    dot: string;
-    bar: string;
-  };
-  details: string[];
-}
 
-interface ServiceProcessProps {
-  steps: ProcessStep[];
-  description?: string;
-  footerNote?: string;
-  completionText?: string;
-}
 
-const iconMap: Record<string, LucideIcon> = {
+const iconMap = {
   Search, PenTool, Code2, Rocket, Settings, Settings2,
   ClipboardList, ClipboardCheck, PhoneCall, MessageSquare,
   CalendarCheck, BarChart2, GitBranch, UserCircle, FileText,
@@ -46,7 +25,7 @@ export default function ServiceProcess({
   description = 'A clear, proven path from first conversation to full deployment.',
   footerNote,
   completionText = 'Complete — ready to go live',
-}: ServiceProcessProps) {
+}) {
   const [active, setActive] = useState(0);
   const step = steps[active];
   const Icon = iconMap[step.icon];
