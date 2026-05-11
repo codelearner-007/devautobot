@@ -1,6 +1,4 @@
-import { SampleProject } from '@/lib/types';
-
-export const automationProjects: SampleProject[] = [
+export const automationProjects = [
   {
     id: 'retailx',
     title: 'RetailX Operations',

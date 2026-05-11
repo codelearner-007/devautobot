@@ -1,6 +1,4 @@
-import { SampleProject } from '@/lib/types';
-
-export const avatarProjects: SampleProject[] = [
+export const avatarProjects = [
   {
     id: 'techedu',
     title: 'TechEdu Academy',

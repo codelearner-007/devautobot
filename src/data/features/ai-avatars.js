@@ -1,6 +1,6 @@
 import type { ServiceFeature } from '@/components/services/common/ServiceFeatures';
 
-export const aiAvatarFeatures: ServiceFeature[] = [
+export const aiAvatarFeatures = [
   {
     icon: 'Video',
     title: 'Photorealistic Avatar Creation',

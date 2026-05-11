@@ -1,6 +1,6 @@
 import type { ServiceFeature } from '@/components/services/common/ServiceFeatures';
 
-export const voiceAiCallingFeatures: ServiceFeature[] = [
+export const voiceAiCallingFeatures = [
   {
     icon: 'Zap',
     title: 'Instant Form Trigger',

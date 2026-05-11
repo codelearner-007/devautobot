@@ -1,6 +1,4 @@
-import { SampleProject } from '@/lib/types';
-
-export const websiteProjects: SampleProject[] = [
+export const websiteProjects = [
   {
     id: 'luxestay',
     title: 'LuxeStay Hotels',

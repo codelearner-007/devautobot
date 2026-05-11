@@ -1,6 +1,6 @@
 import type { PricingTier } from '@/components/services/common/ServicePricing';
 
-export const pricingTiers: PricingTier[] = [
+export const pricingTiers = [
   {
     name: 'Starter',
     price: '$799',

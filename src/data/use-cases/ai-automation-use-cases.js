@@ -1,6 +1,6 @@
 import type { UseCase } from '@/components/services/common/ServicePricing';
 
-export const useCases: UseCase[] = [
+export const useCases = [
   { emoji: '📈', industry: 'Sales & Marketing', title: 'AI Lead Nurture Sequences', description: 'AI monitors new leads, enriches data, scores intent, and triggers personalised email sequences — all without touching your CRM manually.' },
   { emoji: '🧾', industry: 'Finance & Accounting', title: 'Invoice & Document Processing', description: 'Extract invoice data, match to purchase orders, flag anomalies, and post to accounting software with 99%+ accuracy.' },
   { emoji: '📦', industry: 'E-commerce & Retail', title: 'Inventory & Order Automation', description: 'Auto-reorder stock, sync inventory across channels, update product listings, and send order status updates without lifting a finger.' },

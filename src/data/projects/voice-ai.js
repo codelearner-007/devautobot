@@ -1,6 +1,4 @@
-import { SampleProject } from '@/lib/types';
-
-export const voiceAiProjects: SampleProject[] = [
+export const voiceAiProjects = [
   {
     id: 'propconnect',
     title: 'PropConnect Realty',

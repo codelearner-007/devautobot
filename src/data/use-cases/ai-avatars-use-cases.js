@@ -1,6 +1,6 @@
 import type { UseCase } from '@/components/services/common/ServicePricing';
 
-export const useCases: UseCase[] = [
+export const useCases = [
   { emoji: '📚', industry: 'E-learning', title: 'Course & Training Videos at Scale', description: 'Build entire course libraries with a consistent AI instructor — updated instantly when content changes, at near-zero cost.' },
   { emoji: '🏦', industry: 'Finance', title: 'Personalised Customer Onboarding', description: 'Welcome new customers with a video that uses their name, account type, and region — generated dynamically at sign-up.' },
   { emoji: '📣', industry: 'Marketing', title: 'Product Demo & Explainer Videos', description: 'Launch new products with polished demo videos produced in days, not months, at a fraction of agency costs.' },

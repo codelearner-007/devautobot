@@ -1,6 +1,6 @@
 import type { ProcessStep as Step } from '@/components/services/common/ServiceProcess';
 
-export const steps: Step[] = [
+export const steps = [
   {
     number: '01',
     title: 'Choose or Create Your Avatar',

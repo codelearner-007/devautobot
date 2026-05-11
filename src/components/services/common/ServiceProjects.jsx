@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Layers, ChevronLeft, ChevronRight } from 'lucide-react';
-import { SampleProject } from '@/lib/types';
+
 import { staggerContainer, staggerItem } from '@/lib/animations';
 import Container from '@/components/ui/Container';
 import TiltCard from '@/components/ui/TiltCard';
@@ -18,11 +18,7 @@ const COLORS = [
 
 const PER_PAGE = 3;
 
-interface ServiceProjectsProps {
-  projects: SampleProject[];
-}
-
-export default function ServiceProjects({ projects }: ServiceProjectsProps) {
+export default function ServiceProjects({ projects }) {
   const reversed = [...projects].reverse();
   const totalPages = Math.ceil(reversed.length / PER_PAGE);
   const [page, setPage] = useState(0);
