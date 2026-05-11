@@ -65,7 +65,7 @@ export default function Navbar() {
               alt={site.name}
               width={140}
               height={40}
-              className="h-9 w-auto object-contain"
+              className="h-18 w-auto object-contain"
               loading="eager"
             />
             <span className="font-heading font-800 text-lg tracking-tight hidden sm:block">

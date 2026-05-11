@@ -58,6 +58,20 @@ import { cn } from '@/lib/utils'
 import heroData from '@/data/hero/website-dev-hero'
 ```
 
+## Responsiveness is Mandatory
+
+Every component and page MUST be fully responsive across all breakpoints:
+
+- **Mobile** (`sm:`): stack vertically, full-width elements, touch-friendly tap targets
+- **Tablet** (`md:`): adapted grid/flex layouts, scaled typography
+- **Desktop** (`lg:` / `xl:`): full layout with max-width containers
+
+Rules:
+- Always write mobile-first styles, then use `sm:`, `md:`, `lg:`, `xl:` to adapt up
+- Use grid or flex layouts that gracefully reflow across screen sizes
+- Never leave a component without explicit mobile and tablet styling
+- Vertical dividers / decorative elements that don't fit mobile must be `hidden sm:block` (or similar)
+
 ## Code Guidelines
 
 - Tailwind CSS v4 for all styling — no CSS modules, no inline styles
