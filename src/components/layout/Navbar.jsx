@@ -4,23 +4,31 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Code2, Smartphone } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { site } from '@/lib/site';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const services = [
-  { name: 'Website Development', href: '/services/website-dev' },
-  { name: 'Voice AI Calling Agents', href: '/services/voice-ai' },
-  { name: 'AI Avatars', href: '/services/ai-avatars' },
-  { name: 'AI Agents & Automation', href: '/services/ai-automation' },
+  {
+    name: 'Web Development',
+    href: '/services/web-development',
+    icon: Code2,
+    desc: 'Websites, landing pages & web apps',
+  },
+  {
+    name: 'App Development',
+    href: '/services/app-development',
+    icon: Smartphone,
+    desc: 'iOS, Android & cross-platform apps',
+  },
 ];
 
 const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '#', hasDropdown: true },
-  { name: 'About', href: '/#about' },
+  { name: 'Work', href: '/#portfolio' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -36,133 +44,117 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
 
   return (
-    // ── SCROLL EFFECT: delete from here ─────────────────────────────────────
-    // Original: <header className={cn('fixed top-0 left-0 right-0 z-50 transition-all duration-300', isScrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border shadow-[0_4px_32px_hsl(var(--background)/0.4)]' : 'bg-transparent')}>
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'bg-background/50 backdrop-blur-xl border-b border-border shadow-[0_4px_32px_hsl(var(--background)/0.4)]'
+          ? 'bg-background/80 backdrop-blur-xl border-b border-border shadow-lg'
           : 'bg-transparent'
       )}
     >
-      {/* Original: <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
-      <nav
-        className={cn(
-          'transition-all duration-500',
-          isScrolled ? 'px-4 sm:px-6' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'
-        )}
-      >
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
+
           {/* Logo */}
-          <Link href="/">
-            <div className="flex items-center justify-center">
-              <Image src="/logo.png" alt={site.name} width={150} height={100} className="h-15 w-auto object-contain " loading="eager" />
-              <span className="font-bold text-xl">{site.name}</span>
-            </div>
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <Image
+              src="/logo.png"
+              alt={site.name}
+              width={140}
+              height={40}
+              className="h-9 w-auto object-contain"
+              loading="eager"
+            />
+            <span className="font-heading font-800 text-lg tracking-tight hidden sm:block">
+              {site.name}
+            </span>
           </Link>
 
-          {/* Desktop Nav — fades out on scroll */}
-          {/* Original: <div className="hidden lg:flex items-center gap-1"> ... </div> */}
-          <AnimatePresence>
-            {!isScrolled && (
-              <motion.div
-                key="desktop-nav"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, pointerEvents: 'none' }}
-                transition={{ duration: 0.25 }}
-                className="hidden lg:flex items-center gap-1"
-              >
-                {navLinks.map((link) =>
-                  link.hasDropdown ? (
-                    <div key={link.name} className="relative">
-                      <button
-                        className={cn(
-                          'flex items-center gap-1 px-4 py-2 text-sm transition-colors rounded-lg hover:bg-foreground/5',
-                          pathname.startsWith('/services')
-                            ? 'text-primary'
-                            : 'text-muted-foreground hover:text-foreground'
-                        )}
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) =>
+              link.hasDropdown ? (
+                <div key={link.name} className="relative">
+                  <button
+                    className={cn(
+                      'flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg transition-colors',
+                      pathname.startsWith('/services')
+                        ? 'text-primary'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-foreground/5'
+                    )}
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                  >
+                    {link.name}
+                    <ChevronDown size={13} className={cn('transition-transform duration-200', servicesOpen && 'rotate-180')} />
+                  </button>
+                  <AnimatePresence>
+                    {servicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                        transition={{ duration: 0.18 }}
+                        className="absolute top-full left-0 mt-2 w-72 bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-2xl p-2"
                         onMouseEnter={() => setServicesOpen(true)}
                         onMouseLeave={() => setServicesOpen(false)}
-                        onClick={() => setServicesOpen(!servicesOpen)}
                       >
-                        {link.name}
-                        <ChevronDown
-                          size={14}
-                          className={cn(
-                            'transition-transform duration-200',
-                            servicesOpen && 'rotate-180'
-                          )}
-                        />
-                      </button>
-                      <AnimatePresence>
-                        {servicesOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                            transition={{ duration: 0.2, ease: 'easeOut' }}
-                            className="absolute top-full left-0 mt-2 w-max bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-[0_16px_48px_hsl(var(--background)/0.5)] p-2"
-                            onMouseEnter={() => setServicesOpen(true)}
-                            onMouseLeave={() => setServicesOpen(false)}
-                          >
-                            {services.map((s) => {
-                              const isActive = pathname === s.href;
-                              return (
-                                <Link
-                                  key={s.href}
-                                  href={s.href}
-                                  className={cn(
-                                    'block px-3 py-2.5 rounded-xl text-sm transition-colors',
-                                    isActive
-                                      ? 'text-primary bg-primary/8 font-medium'
-                                      : 'text-muted-foreground hover:text-foreground hover:bg-foreground/5'
-                                  )}
-                                >
-                                  {s.name}
-                                </Link>
-                              );
-                            })}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ) : (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      className={cn(
-                        'px-4 py-2 text-sm rounded-lg transition-colors',
-                        pathname === link.href
-                          ? 'text-foreground bg-foreground/5'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-foreground/5'
-                      )}
-                    >
-                      {link.name}
-                    </Link>
-                  )
-                )}
-              </motion.div>
+                        {services.map((s) => {
+                          const Icon = s.icon;
+                          return (
+                            <Link
+                              key={s.href}
+                              href={s.href}
+                              className={cn(
+                                'flex items-start gap-3 px-3 py-3 rounded-xl transition-colors group/item',
+                                pathname === s.href
+                                  ? 'bg-primary/8 text-primary'
+                                  : 'hover:bg-foreground/5'
+                              )}
+                            >
+                              <div className="mt-0.5 p-1.5 rounded-lg bg-primary/8 text-primary shrink-0">
+                                <Icon size={14} />
+                              </div>
+                              <div>
+                                <p className={cn('text-sm font-semibold', pathname === s.href ? 'text-primary' : 'text-foreground')}>{s.name}</p>
+                                <p className="text-xs text-muted-foreground mt-0.5">{s.desc}</p>
+                              </div>
+                            </Link>
+                          );
+                        })}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={cn(
+                    'px-4 py-2 text-sm font-medium rounded-lg transition-colors',
+                    pathname === link.href
+                      ? 'text-foreground bg-foreground/5'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-foreground/5'
+                  )}
+                >
+                  {link.name}
+                </Link>
+              )
             )}
-          </AnimatePresence>
-          {/* ── SCROLL EFFECT: to here, then uncomment the Original lines above ── */}
+          </div>
 
-          {/* CTA + Theme Toggle */}
+          {/* Right side */}
           <div className="hidden lg:flex items-center gap-3">
             <ThemeToggle />
-            <Link href="/contact" className="btn-primary shimmer-btn">
-              Book a Free Call
+            <Link href="/contact" className="btn-primary shimmer-btn text-sm">
+              Start a Project
             </Link>
           </div>
 
-          {/* Mobile: theme toggle + hamburger */}
+          {/* Mobile: theme + hamburger */}
           <div className="lg:hidden flex items-center gap-2">
             <ThemeToggle />
             <button
@@ -183,40 +175,34 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.28, ease: 'easeInOut' }}
             className="lg:hidden overflow-hidden bg-background/98 backdrop-blur-xl border-t border-border"
           >
             <div className="px-4 py-4 space-y-1">
-              <Link href="/" className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-foreground/5 rounded-xl transition-colors">
-                Home
-              </Link>
+              <Link href="/" className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/5 rounded-xl transition-colors">Home</Link>
               <div className="px-4 py-2">
-                <p className="text-xs font-semibold text-muted-foreground/60 uppercase tracking-wider mb-2">Services</p>
+                <p className="text-xs font-bold text-muted-foreground/60 uppercase tracking-widest mb-2">Services</p>
                 {services.map((s) => {
-                  const isActive = pathname === s.href;
+                  const Icon = s.icon;
                   return (
                     <Link
                       key={s.href}
                       href={s.href}
                       className={cn(
-                        'block px-2 py-2.5 text-sm rounded-lg transition-colors',
-                        isActive
-                          ? 'text-primary font-medium'
-                          : 'text-muted-foreground hover:text-foreground'
+                        'flex items-center gap-3 px-2 py-3 text-sm rounded-xl transition-colors',
+                        pathname === s.href ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                       )}
                     >
+                      <Icon size={15} />
                       {s.name}
                     </Link>
                   );
                 })}
               </div>
-              <Link href="/contact" className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-foreground/5 rounded-xl transition-colors">
-                Contact
-              </Link>
-              <div className="pt-2 pb-2">
-                <Link href="/contact" className="btn-primary w-full justify-center">
-                  Book a Free Call
-                </Link>
+              <Link href="/#portfolio" className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/5 rounded-xl transition-colors">Work</Link>
+              <Link href="/contact" className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/5 rounded-xl transition-colors">Contact</Link>
+              <div className="pt-2">
+                <Link href="/contact" className="btn-primary w-full justify-center">Start a Project</Link>
               </div>
             </div>
           </motion.div>

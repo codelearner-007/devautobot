@@ -8,214 +8,156 @@ This document is the **living source of truth** for the project. Update it every
 
 ## Tech Stack
 
-| Layer        | Technology                          |
-|--------------|-------------------------------------|
-| Framework    | Next.js 16 (App Router)             |
-| UI Library   | React 19                            |
-| Styling      | Tailwind CSS v4                     |
-| Animations   | Framer Motion 12                    |
-| Icons        | Lucide React                        |
-| Theme        | next-themes                         |
-| Utilities    | clsx, tailwind-merge                |
-| Language     | JavaScript (`.js` / `.jsx`)         |
-
----
-
-## Directory Structure (Current)
-
-```
-src/
-├── app/
-│   ├── layout.jsx                  # Root layout: metadata, ThemeProvider, Navbar, Footer
-│   ├── page.jsx                    # Home page
-│   ├── globals.css                 # CSS variables, global classes, animation keyframes
-│   ├── contact/
-│   │   └── page.jsx
-│   └── services/
-│       ├── ai-automation/page.jsx
-│       ├── ai-avatars/page.jsx
-│       ├── voice-ai/page.jsx
-│       └── website-dev/page.jsx
-│
-├── components/
-│   ├── theme-provider.jsx
-│   ├── contact/
-│   │   └── ContactForm.jsx
-│   ├── home/
-│   │   ├── Hero.jsx
-│   │   ├── ServicesGrid.jsx
-│   │   ├── FeaturedServices.jsx
-│   │   ├── StatsSection.jsx
-│   │   ├── ProcessTimeline.jsx
-│   │   ├── SocialProof.jsx
-│   │   └── CTABanner.jsx
-│   ├── layout/
-│   │   ├── Navbar.jsx
-│   │   └── Footer.jsx
-│   ├── services/
-│   │   ├── common/
-│   │   │   ├── ServiceHero.jsx
-│   │   │   ├── ServiceFeatures.jsx
-│   │   │   ├── ServiceProcess.jsx
-│   │   │   ├── ServiceProjects.jsx
-│   │   │   ├── ServiceUseCases.jsx
-│   │   │   └── ServicePricing.jsx
-│   │   ├── ai-automation/
-│   │   ├── ai-avatars/
-│   │   ├── voice-ai/
-│   │   ├── website-dev/
-│   │   └── DemoAiVoiceCalling.jsx
-│   └── ui/
-│       ├── AnimatedSection.jsx
-│       ├── Container.jsx
-│       ├── ThemeToggle.jsx
-│       └── TiltCard.jsx
-│
-├── data/
-│   ├── hero/
-│   │   ├── ai-automation-hero.js
-│   │   ├── ai-avatars-hero.js
-│   │   ├── voice-ai-hero.js
-│   │   └── website-dev-hero.js
-│   ├── features/
-│   │   ├── ai-automation.js
-│   │   ├── ai-avatars.js
-│   │   ├── voice-ai-calling.js
-│   │   └── web-development.js
-│   ├── process/
-│   │   ├── ai-automation-process.js
-│   │   ├── ai-avatars-process.js
-│   │   ├── voice-ai-process.js
-│   │   └── website-dev-process.js
-│   ├── projects/
-│   │   ├── ai-automation.js
-│   │   ├── ai-avatars.js
-│   │   ├── voice-ai.js
-│   │   └── website-dev.js
-│   ├── pricing/
-│   │   ├── ai-automation-pricing.js
-│   │   ├── ai-avatars-pricing.js
-│   │   ├── voice-ai-pricing.js
-│   │   └── website-dev-pricing.js
-│   ├── use-cases/
-│   │   ├── ai-automation.js
-│   │   ├── ai-avatars.js
-│   │   ├── voice-ai.js
-│   │   └── website-dev.js
-│   └── demo/
-│       └── voice-ai.js
-│
-└── lib/
-    ├── animations.js               # Framer Motion presets (fadeUp, fadeIn, scaleIn, etc.)
-    ├── site.js                     # Brand info: name, contact, social links
-    └── utils.js                    # cn() helper and general utilities
-```
-
----
-
-## Pages & Routes
-
-| Route                       | File                                          | Status   |
-|-----------------------------|-----------------------------------------------|----------|
-| `/`                         | `src/app/page.jsx`                            | Built    |
-| `/contact`                  | `src/app/contact/page.jsx`                    | Built    |
-| `/services/website-dev`     | `src/app/services/website-dev/page.jsx`       | Built    |
-| `/services/voice-ai`        | `src/app/services/voice-ai/page.jsx`          | Built    |
-| `/services/ai-avatars`      | `src/app/services/ai-avatars/page.jsx`        | Built    |
-| `/services/ai-automation`   | `src/app/services/ai-automation/page.jsx`     | Built    |
-
----
-
-## Home Page Sections
-
-1. `Hero` — main headline, CTA buttons, animated visuals
-2. `ServicesGrid` — 4-service overview cards
-3. `FeaturedServices` — spotlight on key services
-4. `StatsSection` — agency metrics/numbers
-5. `ProcessTimeline` — how we work
-6. `SocialProof` — testimonials / logos
-7. `CTABanner` — bottom call to action
-
----
-
-## Service Page Pattern
-
-Each service page assembles these shared components with service-specific data:
-
-1. `ServiceHero` ← `data/hero/[service]-hero.js`
-2. `ServiceFeatures` ← `data/features/[service].js`
-3. `ServiceProcess` ← `data/process/[service]-process.js`
-4. `ServiceProjects` ← `data/projects/[service].js`
-5. `ServiceUseCases` ← `data/use-cases/[service].js`
-6. `ServicePricing` ← `data/pricing/[service]-pricing.js`
-
----
-
-## Design System
-
-- **Colors:** Primary cyan/teal, service-specific accent colors
-- **Typography:** Syne (headings), DM Sans (body)
-- **Spacing:** 4px base grid via Tailwind
-- **Dark mode:** CSS variables toggled by `next-themes`
-- **Cards:** `.glass-card` frosted glass utility class
-- **Buttons:** `.btn-primary`, `.btn-secondary`
-- **Animations:** Framer Motion — `fadeUp`, `fadeIn`, `scaleIn`, `staggerContainer`, `staggerItem`
+| Layer       | Technology                                           |
+|-------------|------------------------------------------------------|
+| Framework   | Next.js (App Router)                                 |
+| UI          | React 19                                             |
+| Styling     | Tailwind CSS v4 (`@theme`, `@layer components`)      |
+| Animations  | Framer Motion 12                                     |
+| Icons       | Lucide React                                         |
+| Fonts       | Syne (headings) · DM Sans (body) — Google Fonts      |
+| Themes      | next-themes (light/dark, default: dark)              |
+| Language    | JavaScript only (`.js`, `.jsx`)                      |
 
 ---
 
 ## Brand
 
-- **Agency:** DevAutobot
-- **Tagline:** Website Development, Voice AI & Automation
+- **Name:** DevAutobot
+- **Tagline:** Web & App Development Agency
+- **Focus:** Web development + App development only
 - **Email:** devautobot07@gmail.com
 - **Phone:** +92 307 1996482
 - **Location:** Lahore, Pakistan (serving globally)
 
 ---
 
-## Implementation Phases
+## Pages & Routes
 
-### Phase 1 — Foundation (Done)
-- [x] Next.js project with App Router
-- [x] Tailwind CSS v4
-- [x] Framer Motion
-- [x] Dark mode via next-themes
-- [x] Global CSS variables and utility classes
-- [x] `jsconfig.json` with `@/*` path alias
-
-### Phase 2 — Design System (Done)
-- [x] CSS variables for light/dark modes
-- [x] Reusable utility classes in `globals.css`
-- [x] Animation presets in `lib/animations.js`
-
-### Phase 3 — Core Components (Done)
-- [x] `Navbar.jsx` and `Footer.jsx`
-- [x] `Container.jsx`, `TiltCard.jsx`, `AnimatedSection.jsx`, `ThemeToggle.jsx`
-- [x] All shared service components in `components/services/common/`
-
-### Phase 4 — Content Data (Done)
-- [x] All hero, features, process, projects, pricing, use-case data files
-
-### Phase 5 — Pages (Done)
-- [x] Home page with all sections
-- [x] 4 service pages
-- [x] Contact page
-
-### Phase 6 — Remaining
-- [ ] Connect contact form to real API endpoint
-- [ ] Add `loading.jsx` and `error.jsx` global fallbacks
-- [ ] Performance audit (Lighthouse)
-- [ ] SEO meta tags review
-- [ ] Responsive testing (mobile / tablet / desktop)
-- [ ] Dark/light mode QA pass
+| Route                           | File                                              | Status   |
+|---------------------------------|---------------------------------------------------|----------|
+| `/`                             | `src/app/page.jsx`                                | Complete |
+| `/contact`                      | `src/app/contact/page.jsx`                        | Complete |
+| `/services/web-development`     | `src/app/services/web-development/page.jsx`       | Complete |
+| `/services/app-development`     | `src/app/services/app-development/page.jsx`       | Complete |
 
 ---
 
-## NPM Scripts
+## Directory Tree
 
-```bash
-npm run dev      # Development server
-npm run build    # Production build
-npm run start    # Production server
-npm run lint     # ESLint
 ```
+src/
+├── app/
+│   ├── contact/
+│   │   └── page.jsx
+│   ├── services/
+│   │   ├── web-development/
+│   │   │   └── page.jsx
+│   │   └── app-development/
+│   │       └── page.jsx
+│   ├── globals.css
+│   ├── layout.jsx
+│   └── page.jsx
+│
+├── components/
+│   ├── contact/
+│   │   └── ContactForm.jsx
+│   ├── home/
+│   │   ├── Hero.jsx
+│   │   ├── Services.jsx
+│   │   ├── TechStack.jsx
+│   │   ├── WhyUs.jsx
+│   │   ├── Process.jsx
+│   │   ├── Portfolio.jsx
+│   │   ├── Testimonials.jsx
+│   │   ├── Pricing.jsx
+│   │   └── CTABanner.jsx
+│   ├── layout/
+│   │   ├── Navbar.jsx
+│   │   └── Footer.jsx
+│   ├── theme-provider.jsx
+│   └── ui/
+│       ├── AnimatedSection.jsx
+│       ├── Container.jsx
+│       ├── ThemeToggle.jsx
+│       └── TiltCard.jsx
+│
+└── lib/
+    ├── animations.js
+    ├── site.js
+    └── utils.js
+```
+
+---
+
+## Home Page Sections (in order)
+
+1. **Hero** — Bold headline, floating browser/mobile mockups, stats row, CTA buttons
+2. **Services** — Two service cards: Web Development + App Development
+3. **TechStack** — Technology badges (React, Next.js, Flutter, Node.js, etc.)
+4. **WhyUs** — 6 differentiator cards (speed, quality, design, ROI, security, support)
+5. **Process** — 5-step delivery process (Discovery → Design → Build → Test → Launch)
+6. **Portfolio** — 4 featured project cards with tech stack and metrics
+7. **Testimonials** — 6 client testimonials in a 3-column grid
+8. **Pricing** — 3 pricing tiers (Starter $999 / Professional $2,499 / Enterprise custom)
+9. **CTABanner** — Final call-to-action
+
+---
+
+## Design System
+
+### Color Tokens (CSS custom properties via `@theme`)
+
+| Token                    | Light Mode              | Dark Mode               |
+|--------------------------|-------------------------|-------------------------|
+| `--color-background`     | `hsl(0 0% 100%)`        | `hsl(232 35% 4%)`       |
+| `--color-foreground`     | `hsl(230 25% 8%)`       | `hsl(220 20% 95%)`      |
+| `--color-card`           | `hsl(230 20% 97%)`      | `hsl(232 30% 7%)`       |
+| `--color-primary`        | `hsl(258 90% 62%)`      | `hsl(258 90% 68%)`      |
+| `--color-accent`         | `hsl(32 95% 56%)`       | `hsl(32 95% 56%)`       |
+| `--color-border`         | `hsl(230 15% 88%)`      | `hsl(232 25% 14%)`      |
+| `--color-muted-foreground` | `hsl(230 15% 45%)`    | `hsl(220 15% 55%)`      |
+
+### Utility Classes
+
+| Class               | Usage                                         |
+|---------------------|-----------------------------------------------|
+| `.gradient-text`    | Violet→purple→orange gradient text            |
+| `.gradient-text-violet` | Violet→purple gradient text               |
+| `.glass-card`       | Frosted glass card (static)                   |
+| `.glass-card-hover` | Frosted glass card with hover lift effect     |
+| `.btn-primary`      | Primary violet gradient button                |
+| `.btn-secondary`    | Ghost/outline button                          |
+| `.btn-accent`       | Orange accent button                          |
+| `.section-label`    | Small uppercase badge label                   |
+| `.section-heading`  | Bold serif heading style                      |
+| `.bg-grid`          | Subtle grid background pattern                |
+| `.bg-dots`          | Subtle dot pattern background                 |
+| `.shimmer-btn`      | Shimmer effect on hover                       |
+| `.animated-border`  | Rotating conic gradient border on hover       |
+
+### Framer Motion Presets (`src/lib/animations.js`)
+
+- `fadeUp`, `fadeIn`, `fadeLeft`, `fadeRight`
+- `scaleIn`, `staggerContainer`, `staggerItem`, `slideUp`
+
+---
+
+## Navbar Structure
+
+- **Logo** — `logo.png` + "DevAutobot" text
+- **Links** — Home, Services (dropdown), Work, Contact
+- **Services Dropdown** — Web Development + App Development
+- **CTA** — "Start a Project" button (violet)
+- **Theme toggle** — light/dark mode switch
+
+---
+
+## Removed Features (from previous version)
+
+The following services have been completely removed:
+- Voice AI Calling Agents
+- AI Avatars
+- AI Agents & Automation
+
+All related pages, components, and data files have been deleted.

@@ -2,67 +2,61 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
+import { site } from '@/lib/site';
 
 export default function CTABanner() {
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden bg-background">
-      {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 via-violet-500/5 to-pink-500/5" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-violet-400/30 to-transparent" />
+    <section className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0 opacity-5 dark:opacity-8"
+          style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, var(--color-primary) 0%, transparent 70%)' }}
+        />
+      </div>
 
-      {/* Animated beam */}
-      <motion.div
-        animate={{ opacity: [0.3, 0.8, 0.3], scaleX: [0.8, 1, 0.8] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent"
-      />
-
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-label mb-6 inline-block">Ready to Start?</span>
+          <div className="section-label mx-auto mb-6">
+            <Sparkles size={11} />
+            Let's Work Together
+          </div>
 
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-foreground mb-6 leading-tight">
-            Ready to Build Your<br />
-            <span className="gradient-text">AI-Powered Future?</span>
+          <h2 className="section-heading text-4xl sm:text-5xl lg:text-6xl mb-6">
+            Ready to Build
+            <br />
+            <span className="gradient-text">Something Exceptional?</span>
           </h2>
 
-          <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-            Book a free 30-minute strategy call. We&apos;ll audit your current setup, identify AI opportunities, and map out exactly how we can help your business grow.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+            Whether you need a stunning website, a powerful web app, or a cross-platform mobile app —
+            we have the skills, the process, and the drive to deliver it right.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="btn-primary shimmer-btn text-base px-8 py-4">
-              <Calendar size={18} />
-              Book a Free Strategy Call
-              <ArrowRight size={16} />
+              Start Your Project
+              <ArrowRight size={18} />
             </Link>
-            <Link href="#services" className="btn-secondary text-base px-8 py-4">
-              View All Services
-            </Link>
+            <a
+              href={site.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary text-base px-8 py-4"
+            >
+              <MessageCircle size={18} />
+              Chat on WhatsApp
+            </a>
           </div>
 
-          {/* Trust signals */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-              No commitment required
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
-              Free 30-minute call
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-pink-400" />
-              Response within 24 hours
-            </span>
-          </div>
+          <p className="mt-6 text-sm text-muted-foreground">
+            Free consultation · No commitment · Response within 24 hours
+          </p>
         </motion.div>
       </div>
     </section>

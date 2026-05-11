@@ -11,12 +11,16 @@ export const metadata = {
   },
   description: site.description,
   keywords: [
-    'AI website development',
-    'Voice AI agents',
-    'AI avatars',
-    'business automation',
-    'AI calling agents',
-    'AI chatbots',
+    'web development agency',
+    'app development company',
+    'mobile app development',
+    'custom website design',
+    'Next.js development',
+    'React development',
+    'Flutter app development',
+    'web design Pakistan',
+    'software development Lahore',
+    'full stack development',
   ],
   authors: [{ name: site.name }],
   creator: site.name,
@@ -24,14 +28,14 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     url: site.url,
-    title: site.name,
-    description: 'AI-Powered Digital Solutions for Modern Businesses',
+    title: `${site.name} — Web & App Development`,
+    description: site.description,
     siteName: site.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: site.name,
-    description: 'AI-Powered Digital Solutions for Modern Businesses',
+    title: `${site.name} — Web & App Development`,
+    description: site.description,
     creator: site.social.twitter,
   },
   robots: {
@@ -51,7 +55,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="bg-background text-foreground font-body antialiased">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar />
           {children}
           <Footer />

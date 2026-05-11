@@ -1,8 +1,8 @@
 export const site = {
   name: 'DevAutobot',
-  tagline: 'Website Development, Voice AI & Automation',
+  tagline: 'Web & App Development Agency',
   description:
-    'We build AI-powered digital experiences: custom websites, voice AI calling agents, AI avatars, and intelligent automation for any industry.',
+    'We design and build high-performance websites and mobile apps that help businesses grow. From sleek landing pages to complex web platforms and cross-platform apps.',
   url: 'https://devautobot.com',
 
   email: 'devautobot07@gmail.com',
@@ -12,7 +12,7 @@ export const site = {
   whatsappHref: 'https://wa.me/923071996482',
 
   location: 'Lahore, Pakistan',
-  locationSub: 'Serving globally',
+  locationSub: 'Serving clients globally',
 
   social: {
     twitter: '@devautobot',

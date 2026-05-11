@@ -6,11 +6,12 @@ import { Send, Mail, Phone, MapPin, CheckCircle2, Loader2 } from 'lucide-react';
 import { site } from '@/lib/site';
 
 const services = [
-  'Website Development',
-  'Voice AI Calling Agents',
-  'AI Avatars',
-  'AI Agents & Automation',
-  'Full Package (All Services)',
+  'Web Development (Website / Landing Page)',
+  'Web Development (Full-Stack Web App)',
+  'Web Development (E-Commerce Store)',
+  'App Development (Flutter / React Native)',
+  'App Development (PWA)',
+  'Both Web & App Development',
   'Not Sure Yet',
 ];
 
@@ -33,8 +34,8 @@ export default function ContactForm() {
   return (
     <section className="relative min-h-screen bg-background pt-28 pb-20">
       <div className="absolute inset-0 bg-grid opacity-100" />
-      <div className="absolute top-1/3 -left-40 w-96 h-96 bg-cyan-400/6 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/3 -right-40 w-96 h-96 bg-violet-500/6 rounded-full blur-[120px]" />
+      <div className="absolute top-1/3 -left-40 w-96 h-96 bg-primary/6 rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/3 -right-40 w-96 h-96 bg-accent/5 rounded-full blur-[120px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -62,9 +63,9 @@ export default function ContactForm() {
             className="lg:col-span-2 space-y-6"
           >
             {[
-              { icon: Mail,   label: 'Email Us',          value: site.email,    href: `mailto:${site.email}`,  color: 'bg-cyan-400/10 border-cyan-400/15 text-cyan-400' },
-              { icon: Phone,  label: 'Call or WhatsApp',  value: site.whatsapp, href: site.whatsappHref,        color: 'bg-violet-500/10 border-violet-500/15 text-violet-400' },
-              { icon: MapPin, label: 'Based In',          value: `${site.location}\n(${site.locationSub})`, href: '#', color: 'bg-pink-500/10 border-pink-500/15 text-pink-400' },
+              { icon: Mail,   label: 'Email Us',          value: site.email,    href: `mailto:${site.email}`,  color: 'bg-primary/10 border-primary/15 text-primary' },
+              { icon: Phone,  label: 'Call or WhatsApp',  value: site.whatsapp, href: site.whatsappHref,        color: 'bg-primary/10 border-primary/15 text-primary' },
+              { icon: MapPin, label: 'Based In',          value: `${site.location}\n(${site.locationSub})`, href: '#', color: 'bg-primary/10 border-primary/15 text-primary' },
             ].map(({ icon: Icon, label, value, href, color }) => (
               <a
                 key={label}
