@@ -39,14 +39,14 @@ export default function AvatarDemoWidget() {
   const [isTyping, setIsTyping] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const dragControls = useDragControls();
-  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const utteranceRef = useRef(null);
 
   const stopSpeech = () => {
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     setIsSpeaking(false);
   };
 
-  const speak = (text: string) => {
+  const speak = (text) => {
     if (!('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
     const utter = new SpeechSynthesisUtterance(text);
@@ -75,7 +75,7 @@ export default function AvatarDemoWidget() {
       ];
       const FEMALE_NAMES = /samantha|zira|google uk english female|female|karen|moira|tessa|fiona|victoria|allison|ava|susan|kate|claire/i;
       let voice =
-        MALE_NAMES.reduce<SpeechSynthesisVoice | null>((found, name) => {
+        MALE_NAMES.reduce((found, name) => {
           if (found) return found;
           return voices.find(v => v.name.toLowerCase().includes(name.toLowerCase())) ?? null;
         }, null) ??

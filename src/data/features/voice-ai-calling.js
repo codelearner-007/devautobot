@@ -1,5 +1,3 @@
-import type { ServiceFeature } from '@/components/services/common/ServiceFeatures';
-
 export const voiceAiCallingFeatures = [
   {
     icon: 'Zap',

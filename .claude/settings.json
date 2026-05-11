@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "deny": [
+      "Write(**.ts)",
+      "Write(**.tsx)",
+      "Write(**/tsconfig.json)",
+      "Write(**/tsconfig.*.json)",
+      "Edit(**.ts)",
+      "Edit(**.tsx)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"\n[DevAutobot] Reminder: if project structure or features changed, update PROJECT_SKETCH.md\""
+          }
+        ]
+      }
+    ]
+  }
+}

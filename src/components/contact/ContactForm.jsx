@@ -22,7 +22,7 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     await new Promise((r) => setTimeout(r, 1500));

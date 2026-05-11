@@ -1,5 +1,3 @@
-import type { UseCase } from '@/components/services/common/ServicePricing';
-
 export const useCases = [
   { emoji: '🛒', industry: 'E-commerce', title: 'Product & Inventory-Driven Stores', description: 'Custom storefronts with product configurators, subscription boxes, and loyalty systems that outperform any template.' },
   { emoji: '🚀', industry: 'SaaS', title: 'High-Converting SaaS Landing Pages', description: 'Animated features, ROI calculators, live demos, and Stripe-integrated signups — built to convert free trials into paying customers.' },

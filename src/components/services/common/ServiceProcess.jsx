@@ -7,7 +7,6 @@ import {
   ClipboardList, ClipboardCheck, PhoneCall, MessageSquare,
   CalendarCheck, BarChart2, GitBranch, UserCircle, FileText,
   Sparkles, Globe, CheckCircle2, Clock, ArrowRight, Lightbulb,
-  LucideIcon,
 } from 'lucide-react';
 import Container from '@/components/ui/Container';
 

@@ -3,10 +3,10 @@
 import {
   Home, Scale, Heart, GraduationCap, Wrench, Briefcase,
 } from 'lucide-react';
-import ServiceUseCases, { type ServiceUseCaseConfig } from '@/components/services/common/ServiceUseCases';
+import ServiceUseCases from '@/components/services/common/ServiceUseCases';
 import { useCases } from '@/data/use-cases/voice-ai-use-cases';
 
-const config: ServiceUseCaseConfig[] = [
+const config = [
   { icon: Home,          iconColor: 'text-violet-400',  iconBg: 'bg-violet-500/10 border-violet-400/25',  glow: 'rgba(167,139,250,0.25)',     ring: '#a78bfa',              tagBg: 'bg-violet-400/10 border-violet-400/25 text-violet-400' },
   { icon: Scale,         iconColor: 'text-blue-400',    iconBg: 'bg-blue-500/10 border-blue-400/25',      glow: 'rgba(96,165,250,0.25)',      ring: '#60a5fa',              tagBg: 'bg-blue-400/10 border-blue-400/25 text-blue-400' },
   { icon: Heart,         iconColor: 'text-emerald-400', iconBg: 'bg-emerald-400/10 border-emerald-400/25',glow: 'rgba(52,211,153,0.25)',      ring: '#34d399',              tagBg: 'bg-emerald-400/10 border-emerald-400/25 text-emerald-400' },

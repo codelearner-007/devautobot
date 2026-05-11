@@ -3,10 +3,10 @@
 import {
   BookOpen, Landmark, Megaphone, Users, Target, Globe,
 } from 'lucide-react';
-import ServiceUseCases, { type ServiceUseCaseConfig } from '@/components/services/common/ServiceUseCases';
+import ServiceUseCases from '@/components/services/common/ServiceUseCases';
 import { useCases } from '@/data/use-cases/ai-avatars-use-cases';
 
-const config: ServiceUseCaseConfig[] = [
+const config = [
   { icon: BookOpen,  iconColor: 'text-violet-400',  iconBg: 'bg-violet-500/10 border-violet-400/25',  glow: 'rgba(167,139,250,0.25)',     ring: '#a78bfa',              tagBg: 'bg-violet-400/10 border-violet-400/25 text-violet-400' },
   { icon: Landmark,  iconColor: 'text-blue-400',    iconBg: 'bg-blue-500/10 border-blue-400/25',      glow: 'rgba(96,165,250,0.25)',      ring: '#60a5fa',              tagBg: 'bg-blue-400/10 border-blue-400/25 text-blue-400' },
   { icon: Megaphone, iconColor: 'text-pink-400',    iconBg: 'bg-pink-500/10 border-pink-400/25',      glow: 'rgba(244,114,182,0.25)',     ring: '#f472b6',              tagBg: 'bg-pink-400/10 border-pink-400/25 text-pink-400' },

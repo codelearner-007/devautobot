@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, RotateCw, LucideIcon } from 'lucide-react';
+import { ArrowRight, RotateCw } from 'lucide-react';
 import Link from 'next/link';
 import Container from '@/components/ui/Container';
 

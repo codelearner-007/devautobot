@@ -1,7 +1,6 @@
-import { Metadata } from 'next';
 import ContactForm from '@/components/contact/ContactForm';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Contact Us',
   description: 'Book a free strategy call or send us a message. We\'ll get back to you within 24 hours.',
 };

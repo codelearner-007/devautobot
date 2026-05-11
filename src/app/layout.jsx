@@ -1,5 +1,4 @@
 import './globals.css';
-import { Metadata } from 'next';
 import { site } from '@/lib/site';
 import { ThemeProvider } from '@/components/theme-provider';
 import Navbar from '@/components/layout/Navbar';

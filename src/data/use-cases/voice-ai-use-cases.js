@@ -1,5 +1,3 @@
-import type { UseCase } from '@/components/services/common/ServicePricing';
-
 export const useCases = [
   { emoji: '🏠', industry: 'Real Estate', title: 'Property Enquiry Forms', description: 'Visitor fills a "Book a Viewing" form → AI calls within 60 seconds, asks about budget, area preference, and move-in timeline, then locks in a viewing appointment.' },
   { emoji: '⚖️', industry: 'Legal / Law Firms', title: 'Case Intake Forms', description: 'Potential client submits a consultation request → AI calls to gather case details, urgency, and contact preference, then routes qualified cases to the right attorney.' },

@@ -4,10 +4,9 @@ import {
   ShoppingCart, Rocket, Building2, UtensilsCrossed, Scale, GraduationCap,
 } from 'lucide-react';
 import ServiceUseCases from '@/components/services/common/ServiceUseCases';
-import type { ServiceUseCaseConfig } from '@/components/services/common/ServiceUseCases';
 import { useCases } from '@/data/use-cases/website-dev-use-cases';
 
-const config: ServiceUseCaseConfig[] = [
+const config = [
   { icon: ShoppingCart,    iconColor: 'text-emerald-400', iconBg: 'bg-emerald-400/10 border-emerald-400/25', glow: 'rgba(52,211,153,0.25)',      ring: '#34d399',              tagBg: 'bg-emerald-400/10 border-emerald-400/25 text-emerald-400' },
   { icon: Rocket,          iconColor: 'text-violet-400',  iconBg: 'bg-violet-500/10 border-violet-400/25',  glow: 'rgba(167,139,250,0.25)',     ring: '#a78bfa',              tagBg: 'bg-violet-400/10 border-violet-400/25 text-violet-400' },
   { icon: Building2,       iconColor: 'text-blue-400',    iconBg: 'bg-blue-500/10 border-blue-400/25',      glow: 'rgba(96,165,250,0.25)',      ring: '#60a5fa',              tagBg: 'bg-blue-400/10 border-blue-400/25 text-blue-400' },

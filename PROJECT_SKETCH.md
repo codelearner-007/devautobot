@@ -1,312 +1,221 @@
-# Devmanar Relaunch - Project Sketch & Implementation Plan
+# DevAutobot — Project Sketch & Current State
 
-This document outlines a step-by-step plan to create a similar AI-powered digital services agency website based on the Devmanar-relaunch project structure using JavaScript (not TypeScript).
+This document is the **living source of truth** for the project. Update it every time the project structure, features, or stack changes.
 
-## Phase 1: Project Setup & Foundation
+> **Language rule:** JavaScript only — `.js` and `.jsx`. No TypeScript, no `tsconfig.json`.
 
-### Step 1: Initialize Next.js Project
+---
+
+## Tech Stack
+
+| Layer        | Technology                          |
+|--------------|-------------------------------------|
+| Framework    | Next.js 16 (App Router)             |
+| UI Library   | React 19                            |
+| Styling      | Tailwind CSS v4                     |
+| Animations   | Framer Motion 12                    |
+| Icons        | Lucide React                        |
+| Theme        | next-themes                         |
+| Utilities    | clsx, tailwind-merge                |
+| Language     | JavaScript (`.js` / `.jsx`)         |
+
+---
+
+## Directory Structure (Current)
+
+```
+src/
+├── app/
+│   ├── layout.jsx                  # Root layout: metadata, ThemeProvider, Navbar, Footer
+│   ├── page.jsx                    # Home page
+│   ├── globals.css                 # CSS variables, global classes, animation keyframes
+│   ├── contact/
+│   │   └── page.jsx
+│   └── services/
+│       ├── ai-automation/page.jsx
+│       ├── ai-avatars/page.jsx
+│       ├── voice-ai/page.jsx
+│       └── website-dev/page.jsx
+│
+├── components/
+│   ├── theme-provider.jsx
+│   ├── contact/
+│   │   └── ContactForm.jsx
+│   ├── home/
+│   │   ├── Hero.jsx
+│   │   ├── ServicesGrid.jsx
+│   │   ├── FeaturedServices.jsx
+│   │   ├── StatsSection.jsx
+│   │   ├── ProcessTimeline.jsx
+│   │   ├── SocialProof.jsx
+│   │   └── CTABanner.jsx
+│   ├── layout/
+│   │   ├── Navbar.jsx
+│   │   └── Footer.jsx
+│   ├── services/
+│   │   ├── common/
+│   │   │   ├── ServiceHero.jsx
+│   │   │   ├── ServiceFeatures.jsx
+│   │   │   ├── ServiceProcess.jsx
+│   │   │   ├── ServiceProjects.jsx
+│   │   │   ├── ServiceUseCases.jsx
+│   │   │   └── ServicePricing.jsx
+│   │   ├── ai-automation/
+│   │   ├── ai-avatars/
+│   │   ├── voice-ai/
+│   │   ├── website-dev/
+│   │   └── DemoAiVoiceCalling.jsx
+│   └── ui/
+│       ├── AnimatedSection.jsx
+│       ├── Container.jsx
+│       ├── ThemeToggle.jsx
+│       └── TiltCard.jsx
+│
+├── data/
+│   ├── hero/
+│   │   ├── ai-automation-hero.js
+│   │   ├── ai-avatars-hero.js
+│   │   ├── voice-ai-hero.js
+│   │   └── website-dev-hero.js
+│   ├── features/
+│   │   ├── ai-automation.js
+│   │   ├── ai-avatars.js
+│   │   ├── voice-ai-calling.js
+│   │   └── web-development.js
+│   ├── process/
+│   │   ├── ai-automation-process.js
+│   │   ├── ai-avatars-process.js
+│   │   ├── voice-ai-process.js
+│   │   └── website-dev-process.js
+│   ├── projects/
+│   │   ├── ai-automation.js
+│   │   ├── ai-avatars.js
+│   │   ├── voice-ai.js
+│   │   └── website-dev.js
+│   ├── pricing/
+│   │   ├── ai-automation-pricing.js
+│   │   ├── ai-avatars-pricing.js
+│   │   ├── voice-ai-pricing.js
+│   │   └── website-dev-pricing.js
+│   ├── use-cases/
+│   │   ├── ai-automation.js
+│   │   ├── ai-avatars.js
+│   │   ├── voice-ai.js
+│   │   └── website-dev.js
+│   └── demo/
+│       └── voice-ai.js
+│
+└── lib/
+    ├── animations.js               # Framer Motion presets (fadeUp, fadeIn, scaleIn, etc.)
+    ├── site.js                     # Brand info: name, contact, social links
+    └── utils.js                    # cn() helper and general utilities
+```
+
+---
+
+## Pages & Routes
+
+| Route                       | File                                          | Status   |
+|-----------------------------|-----------------------------------------------|----------|
+| `/`                         | `src/app/page.jsx`                            | Built    |
+| `/contact`                  | `src/app/contact/page.jsx`                    | Built    |
+| `/services/website-dev`     | `src/app/services/website-dev/page.jsx`       | Built    |
+| `/services/voice-ai`        | `src/app/services/voice-ai/page.jsx`          | Built    |
+| `/services/ai-avatars`      | `src/app/services/ai-avatars/page.jsx`        | Built    |
+| `/services/ai-automation`   | `src/app/services/ai-automation/page.jsx`     | Built    |
+
+---
+
+## Home Page Sections
+
+1. `Hero` — main headline, CTA buttons, animated visuals
+2. `ServicesGrid` — 4-service overview cards
+3. `FeaturedServices` — spotlight on key services
+4. `StatsSection` — agency metrics/numbers
+5. `ProcessTimeline` — how we work
+6. `SocialProof` — testimonials / logos
+7. `CTABanner` — bottom call to action
+
+---
+
+## Service Page Pattern
+
+Each service page assembles these shared components with service-specific data:
+
+1. `ServiceHero` ← `data/hero/[service]-hero.js`
+2. `ServiceFeatures` ← `data/features/[service].js`
+3. `ServiceProcess` ← `data/process/[service]-process.js`
+4. `ServiceProjects` ← `data/projects/[service].js`
+5. `ServiceUseCases` ← `data/use-cases/[service].js`
+6. `ServicePricing` ← `data/pricing/[service]-pricing.js`
+
+---
+
+## Design System
+
+- **Colors:** Primary cyan/teal, service-specific accent colors
+- **Typography:** Syne (headings), DM Sans (body)
+- **Spacing:** 4px base grid via Tailwind
+- **Dark mode:** CSS variables toggled by `next-themes`
+- **Cards:** `.glass-card` frosted glass utility class
+- **Buttons:** `.btn-primary`, `.btn-secondary`
+- **Animations:** Framer Motion — `fadeUp`, `fadeIn`, `scaleIn`, `staggerContainer`, `staggerItem`
+
+---
+
+## Brand
+
+- **Agency:** DevAutobot
+- **Tagline:** Website Development, Voice AI & Automation
+- **Email:** devautobot07@gmail.com
+- **Phone:** +92 307 1996482
+- **Location:** Lahore, Pakistan (serving globally)
+
+---
+
+## Implementation Phases
+
+### Phase 1 — Foundation (Done)
+- [x] Next.js project with App Router
+- [x] Tailwind CSS v4
+- [x] Framer Motion
+- [x] Dark mode via next-themes
+- [x] Global CSS variables and utility classes
+- [x] `jsconfig.json` with `@/*` path alias
+
+### Phase 2 — Design System (Done)
+- [x] CSS variables for light/dark modes
+- [x] Reusable utility classes in `globals.css`
+- [x] Animation presets in `lib/animations.js`
+
+### Phase 3 — Core Components (Done)
+- [x] `Navbar.jsx` and `Footer.jsx`
+- [x] `Container.jsx`, `TiltCard.jsx`, `AnimatedSection.jsx`, `ThemeToggle.jsx`
+- [x] All shared service components in `components/services/common/`
+
+### Phase 4 — Content Data (Done)
+- [x] All hero, features, process, projects, pricing, use-case data files
+
+### Phase 5 — Pages (Done)
+- [x] Home page with all sections
+- [x] 4 service pages
+- [x] Contact page
+
+### Phase 6 — Remaining
+- [ ] Connect contact form to real API endpoint
+- [ ] Add `loading.jsx` and `error.jsx` global fallbacks
+- [ ] Performance audit (Lighthouse)
+- [ ] SEO meta tags review
+- [ ] Responsive testing (mobile / tablet / desktop)
+- [ ] Dark/light mode QA pass
+
+---
+
+## NPM Scripts
+
 ```bash
-# Create new Next.js 14 project with JavaScript
-npx create-next-app@latest my-agency-site
-cd my-agency-site
-
-# Install required dependencies
-npm install framer-motion lucide-react tailwindcss postcss autoprefixer clsx tailwind-merge
-
-# Initialize Tailwind CSS
-npx tailwindcss init -p
+npm run dev      # Development server
+npm run build    # Production build
+npm run start    # Production server
+npm run lint     # ESLint
 ```
-
-### Step 2: Configure Project Structure
-Create the following directory structure:
-```
-src/
-├── app/
-│   ├── layout.jsx
-│   ├── page.jsx          # Home page
-│   ├── globals.css
-│   └── services/         # Service pages
-│       ├── service1/
-│       ├── service2/
-│       └── service3/
-├── components/
-│   ├── home/             # Home page components
-│   ├── layout/           # Navbar, Footer
-│   ├── services/         # Service-specific components
-│   │   ├── common/       # Shared service components
-│   │   └── [service-name]/ # Service-specific components
-│   └── ui/               # Reusable UI components
-├── data/                 # All content data (organized by type)
-│   ├── hero/
-│   ├── features/
-│   ├── process/
-│   ├── projects/
-│   ├── pricing/
-│   ├── use-cases/
-│   └── demo/
-├── lib/                  # Utility functions & shared logic
-│   ├── animations.js
-│   ├── site.js
-│   ├── types.js
-│   └── utils.js
-└── styles/               # Additional styling if needed
-```
-src/
-├── app/
-│   ├── layout.jsx
-│   ├── page.jsx          # Home page
-│   ├── globals.css
-│   └── services/         # Service pages
-│       ├── service1/
-│       ├── service2/
-│       └── service3/
-├── components/
-│   ├── home/             # Home page components
-│   ├── layout/           # Navbar, Footer
-│   ├── services/         # Service-specific components
-│   │   ├── common/       # Shared service components
-│   │   └── [service-name]/ # Service-specific components
-│   └── ui/               # Reusable UI components
-├── data/                 # All content data (organized by type)
-│   ├── hero/
-│   ├── features/
-│   ├── process/
-│   ├── projects/
-│   ├── pricing/
-│   ├── use-cases/
-│   └── demo/
-├── lib/                  # Utility functions & shared logic
-│   ├── animations.js
-│   ├── site.js
-│   ├── types.js
-│   └── utils.js
-└── styles/               # Additional styling if needed
-```
-
-### Step 3: Configure Tailwind CSS
-Update `tailwind.config.js` with:
-- Custom colors matching the design system
-- Custom animations (marquee, float, beam, etc.)
-- Custom box shadows (glow effects)
-- Font family configuration
-- Dark mode support
-
-### Step 4: Set Up Global Styles
-Create `src/app/globals.css` with:
-- CSS variables for light/dark modes
-- Global component classes (.glass-card, .btn-primary, etc.)
-- Base typography and reset styles
-- Animation keyframes
-
-## Phase 2: Design System Implementation
-
-### Step 5: Implement Design Tokens
-Define in CSS variables:
-- Colors: Primary (cyan), service-specific accents
-- Typography: Syne (headings), DM Sans (body)
-- Spacing: Consistent 4px grid system
-- Border radius: Consistent values
-- Shadows: Glow effects for primary colors
-
-### Step 6: Create Reusable Component Classes
-Implement in globals.css:
-- `.gradient-text` for animated text gradients
-- `.glass-card` for frosted glass effect
-- `.btn-primary` and `.btn-secondary` for consistent buttons
-- `.section-label` and `.section-heading` for consistent section headers
-- `.animated-border` for rotating border effects
-- `.shimmer-btn` for hover effects
-
-## Phase 3: Core Component Development
-
-### Step 7: Build Layout Components
-Create:
-- `Navbar.tsx`: Sticky navigation with mobile menu
-- `Footer.tsx`: Comprehensive footer with links and social icons
-- `Container.tsx`: Responsive container with size variants (sm, md, lg, xl, full)
-
-### Step 8: Build UI Components
-Create:
-- `TiltCard.tsx`: 3D tilt effect component using Framer Motion
-- `AnimatedSection.tsx`: Scroll-triggered animation wrapper
-- `ThemeToggle.tsx`: Dark/light mode switcher
-
-### Step 9: Build Shared Service Components
-Create in `src/components/services/common/`:
-- `ServiceHero.tsx`: Generic hero section with consistent structure
-- `ServiceFeatures.tsx`: Feature grid with color-rotating cards
-- `ServiceProcess.tsx`: Vertical timeline/process visualization
-- `ServiceProjects.tsx`: Carousel/project showcase component
-- `ServiceUseCases.tsx`: Industry use cases section
-- `ServicePricing.tsx`: Tiered pricing cards
-- `ServiceCTA.tsx`: Call-to-action section
-
-## Phase 4: Content Organization
-
-### Step 10: Structure Content Data
-Organize data in `src/data/` by type:
-```
-src/data/
-  hero/
-    service1-hero.ts
-    service2-hero.ts
-  features/
-    service1-features.ts
-    service2-features.ts
-  process/
-    service1-process.ts
-    service2-process.ts
-  projects/
-    service1-projects.ts
-    service2-projects.ts
-  pricing/
-    service1-pricing.ts
-    service2-pricing.ts
-  use-cases/
-    service1-use-cases.ts
-    service2-use-cases.ts
-  demo/
-    service1-demo.ts
-```
-
-Each file exports typed data matching the component interfaces.
-
-### Step 11: Define Component Types
-Create `src/lib/types.js` with JSDoc for:
-- Hero data
-- Feature items
-- Process steps
-- Project items
-- Pricing tiers
-- Use cases
-- Demo widgets
-
-## Phase 5: Service Page Implementation
-
-### Step 12: Implement Service Pages
-For each service (e.g., Website Development, Voice AI, AI Avatars, AI Automation):
-1. Create service folder in `src/app/services/`
-2. Create page.tsx with metadata export
-3. Import and assemble service-specific components:
-   - ServiceHero (with service-specific data)
-   - ServiceFeatures (with service-specific features)
-   - ServiceProcess (with service-specific process steps)
-   - ServiceProjects (with service-specific projects)
-   - ServiceUseCases (with service-specific use cases)
-   - ServicePricing (with service-specific pricing)
-   - ServiceCTA (with service-specific CTA)
-
-### Step 13: Create Service-Specific Components
-For each service, create components in `src/components/services/[service-name]/`:
-- `[Service]Hero.tsx`: Extends ServiceHero with service-specific visual
-- `[Service]Features.tsx`: Uses ServiceFeatures with service data
-- `[Service]Process.tsx`: Uses ServiceProcess with service data
-- `[Service]Projects.tsx`: Uses ServiceProjects with service data
-- `[Service]UseCases.tsx`: Uses ServiceUseCases with service data
-- `[Service]Pricing.tsx`: Uses ServicePricing with service data
-- `[Service]CTA.tsx`: Uses ServiceCTA with service data
-
-### Step 14: Implement Home Page
-Create `src/app/page.tsx` with:
-- Hero section (from components/home/Hero.tsx)
-- Services grid overview
-- Stats section
-- Process timeline
-- Featured services section
-- Social proof/testimonials
-- CTA banner
-
-## Phase 6: Animation & Interactivity
-
-### Step 15: Configure Animations
-Create `src/lib/animations.ts` with Framer Motion presets:
-- fadeUp, fadeIn, fadeLeft, fadeRight
-- scaleIn, staggerContainer, staggerItem
-- slideUp for entrance animations
-
-### Step 16: Implement Lazy Loading
-Use `next/dynamic` for heavy components:
-- TiltCard (mouse event listeners)
-- Carousel/orbital sections
-- Complex Framer Motion sequences
-- Components requiring browser context
-
-### Step 17: Optimize Images
-Use `next/image` for all images:
-- Add `priority` prop to hero/above-the-fold images
-- Use appropriate widths/heights for layout stability
-- Implement responsive fill layouts where needed
-
-## Phase 7: SEO & Performance
-
-### Step 18: Implement Metadata
-Add metadata exports to all page.tsx files:
-- Title and description for SEO
-- Open Graph tags for social sharing
-- Twitter card data if needed
-
-### Step 19: Implement Loading & Error States
-Create:
-- `src/app/loading.tsx`: Global loading spinner
-- `src/app/error.tsx`: Global error boundary
-- Service-specific loading states if needed
-
-### Step 20: Performance Optimization
-- Ensure hero components use `motion` (not `m`) for immediate load
-- Use `m` + `LazyMotion` for below-fold sections
-- Implement proper code splitting with dynamic imports
-- Optimize bundle size by avoiding unnecessary client components
-
-## Phase 8: Content Customization
-
-### Step 21: Configure Brand Information
-Create `src/lib/site.ts` with:
-- Agency name
-- Contact information
-- Social media links
-- Brand description
-
-### Step 22: Implement Content Customization Guide
-Document how to:
-- Update agency name throughout the site
-- Modify contact information in Footer.tsx
-- Update sample projects in data/projects/
-- Adjust pricing tiers in service-specific pricing files
-- Connect contact form to real API endpoint
-
-## Phase 9: Testing & Deployment
-
-### Step 23: Test Responsiveness
-Verify all pages work correctly at:
-- Mobile (< 640px)
-- Tablet (640px - 1024px)
-- Desktop (> 1024px)
-
-### Step 24: Test Dark/Light Mode
-Ensure proper switching between modes with correct color variables.
-
-### Step 25: Prepare for Deployment
-Choose deployment method:
-- Vercel (recommended): `npm install -g vercel && vercel`
-- Manual build: `npm run build && npm start`
-
-### Step 26: Final Checks
-- Validate all links work correctly
-- Check form functionality
-- Verify meta tags and SEO elements
-- Test performance with Lighthouse or similar tools
-
-## Implementation Order Summary
-
-1. Project setup and configuration
-2. Design system (globals.css, tailwind.config)
-3. Layout and UI components
-4. Shared service components
-5. Content data structure and types
-6. Home page implementation
-7. Service page templates and components
-8. Animation and interactivity
-9. SEO, performance, and optimization
-10. Content customization and deployment
-
-This plan follows the exact structure and conventions observed in the Devmanar-relaunch project, ensuring consistency and maintainability while providing a solid foundation for an AI-powered digital services agency website.

@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
-export default function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
+export default function TiltCard({ children, className }) {
   const ref = useRef(null);
 
   const rawX = useMotionValue(0);
@@ -15,7 +15,7 @@ export default function TiltCard({ children, className }: { children: React.Reac
   const glowX   = useSpring(useTransform(rawX, [-0.5, 0.5], [0, 100]), springCfg);
   const glowY   = useSpring(useTransform(rawY, [-0.5, 0.5], [0, 100]), springCfg);
 
-  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMove = (e) => {
     const el = ref.current;
     if (!el) return;
     const { left, top, width, height } = el.getBoundingClientRect();
@@ -43,7 +43,7 @@ export default function TiltCard({ children, className }: { children: React.Reac
           style={{
             background: useTransform(
               [glowX, glowY],
-              ([x, y]: number[]) =>
+              ([x, y]) =>
                 `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.06) 0%, transparent 60%)`
             ),
           }}

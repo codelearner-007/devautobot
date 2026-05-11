@@ -61,9 +61,9 @@ export default function ServiceProjects({ projects }) {
               key={page}
               custom={direction}
               variants={{
-                enter: (d: number) => ({ opacity: 0, x: d * 60 }),
+                enter: (d) => ({ opacity: 0, x: d * 60 }),
                 center: { opacity: 1, x: 0 },
-                exit: (d: number) => ({ opacity: 0, x: d * -60 }),
+                exit: (d) => ({ opacity: 0, x: d * -60 }),
               }}
               initial="enter"
               animate="center"

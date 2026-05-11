@@ -12,7 +12,7 @@ export default function AnimatedSection({
   className,
   delay = 0,
   direction = 'up',
-}: AnimatedSectionProps) {
+}) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 

@@ -1,6 +1,4 @@
-import { ServiceFeature } from '@/components/services/common/ServiceFeatures';
-
-export const webDevelopmentFeatures: ServiceFeature[] = [
+export const webDevelopmentFeatures = [
   {
     icon: 'Palette',
     title: 'Custom UI/UX Design',

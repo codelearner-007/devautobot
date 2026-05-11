@@ -3,10 +3,10 @@
 import {
   TrendingUp, Receipt, ShoppingBag, Headphones, Settings2, BarChart2,
 } from 'lucide-react';
-import ServiceUseCases, { type ServiceUseCaseConfig } from '@/components/services/common/ServiceUseCases';
+import ServiceUseCases from '@/components/services/common/ServiceUseCases';
 import { useCases } from '@/data/use-cases/ai-automation-use-cases';
 
-const config: ServiceUseCaseConfig[] = [
+const config = [
   { icon: TrendingUp,  iconColor: 'text-amber-400',   iconBg: 'bg-amber-400/10 border-amber-400/25',   glow: 'rgba(251,191,36,0.25)',      ring: '#fbbf24',              tagBg: 'bg-amber-400/10 border-amber-400/25 text-amber-400' },
   { icon: Receipt,     iconColor: 'text-blue-400',    iconBg: 'bg-blue-500/10 border-blue-400/25',      glow: 'rgba(96,165,250,0.25)',      ring: '#60a5fa',              tagBg: 'bg-blue-400/10 border-blue-400/25 text-blue-400' },
   { icon: ShoppingBag, iconColor: 'text-emerald-400', iconBg: 'bg-emerald-400/10 border-emerald-400/25',glow: 'rgba(52,211,153,0.25)',      ring: '#34d399',              tagBg: 'bg-emerald-400/10 border-emerald-400/25 text-emerald-400' },

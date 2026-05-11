@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import AutomationHero from '@/components/services/ai-automation/AutomationHero';
 import AutomationFeatures from '@/components/services/ai-automation/AutomationFeatures';
 import AutomationProcess from '@/components/services/ai-automation/AutomationProcess';
@@ -7,7 +6,7 @@ import AutomationUseCases from '@/components/services/ai-automation/AutomationUs
 import AutomationPricing from '@/components/services/ai-automation/AutomationPricing';
 import AutomationCTA from '@/components/services/ai-automation/AutomationCTA';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'AI Agents & Automation',
   description: 'Eliminate repetitive work with intelligent AI automation. We build multi-step agent pipelines that handle emails, data processing, scheduling, and decisions — while you focus on growth.',
 };

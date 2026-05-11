@@ -12,6 +12,62 @@ import Link from 'next/link';
 import { staggerContainer, staggerItem } from '@/lib/animations';
 import Container from '@/components/ui/Container';
 
+const iconMap = {
+  Palette, Smartphone, Search, Zap, Database, BarChart3, BarChart2,
+  ShoppingCart, Globe, Settings, FileText, MessageSquare,
+  CalendarCheck, RefreshCw, Headphones, Bot, Cpu, Brain, Layers,
+  TrendingUp, Mail, Users, Star, Clock, Shield, Sparkles, Wand2,
+  Mic, Video, Share2, GitBranch, Webhook, Bell, Code2, LayoutDashboard,
+};
+
+const featureAccents = [
+  { icon: 'text-primary',     bg: 'bg-primary/10',     border: 'border-primary/20'     },
+  { icon: 'text-violet-400',  bg: 'bg-violet-400/10',  border: 'border-violet-400/20'  },
+  { icon: 'text-cyan-400',    bg: 'bg-cyan-400/10',    border: 'border-cyan-400/20'    },
+  { icon: 'text-pink-400',    bg: 'bg-pink-400/10',    border: 'border-pink-400/20'    },
+  { icon: 'text-emerald-400', bg: 'bg-emerald-400/10', border: 'border-emerald-400/20' },
+  { icon: 'text-amber-400',   bg: 'bg-amber-400/10',   border: 'border-amber-400/20'   },
+];
+
+function FeatureCard({ feature, index, large = false, full = false, extra }) {
+  const Icon = iconMap[feature.icon];
+  const accent = featureAccents[index % featureAccents.length];
+
+  return (
+    <motion.div
+      variants={staggerItem}
+      className={`glass-card group hover:border-foreground/[0.12] transition-all duration-300 relative overflow-hidden ${
+        full ? 'p-7 flex items-center justify-between gap-8' : large ? 'p-7' : 'p-6'
+      }`}
+    >
+      <div className={full ? 'flex-1' : 'h-full flex flex-col'}>
+        <div className="flex items-start justify-between mb-4">
+          <div className={`w-10 h-10 rounded-xl border ${accent.bg} ${accent.border} flex items-center justify-center flex-shrink-0`}>
+            {Icon && <Icon size={18} className={accent.icon} />}
+          </div>
+          {feature.stat && (large || full) && (
+            <div className="text-right">
+              <div className={`font-heading font-bold text-2xl leading-none ${accent.icon}`}>{feature.stat}</div>
+              <div className="text-xs text-muted-foreground/70 mt-0.5">{feature.statLabel}</div>
+            </div>
+          )}
+        </div>
+        <h3 className={`font-heading font-bold text-foreground mb-2 leading-snug ${large || full ? 'text-lg' : 'text-base'}`}>
+          {feature.title}
+        </h3>
+        <p className="text-sm text-muted-foreground leading-relaxed flex-1">{feature.description}</p>
+        {feature.stat && !large && !full && (
+          <div className="mt-4 pt-4 border-t border-foreground/[0.06] flex items-center gap-2">
+            <span className={`font-heading font-bold text-base ${accent.icon}`}>{feature.stat}</span>
+            <span className="text-xs text-muted-foreground/70">{feature.statLabel}</span>
+          </div>
+        )}
+      </div>
+      {extra}
+    </motion.div>
+  );
+}
+
 export default function ServiceFeatures({ features, sectionLabel = 'Key Features', heading, description = 'Built from the ground up to handle real-world complexity, at any scale.', ctaHref = '/contact', ctaLabel = 'Learn more' }) {
   const heroFeatures = features.slice(0, Math.min(2, features.length));
   const remaining    = features.slice(heroFeatures.length);

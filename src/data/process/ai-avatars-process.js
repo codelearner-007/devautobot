@@ -1,5 +1,3 @@
-import type { ProcessStep as Step } from '@/components/services/common/ServiceProcess';
-
 export const steps = [
   {
     number: '01',

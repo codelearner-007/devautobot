@@ -1,5 +1,3 @@
-import type { PricingTier } from '@/components/services/common/ServicePricing';
-
 export const pricingTiers = [
   {
     name: 'Creator',
