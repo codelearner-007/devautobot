@@ -65,7 +65,6 @@ src/
 │   ├── home/
 │   │   ├── Hero.jsx
 │   │   ├── Services.jsx
-│   │   ├── TechStack.jsx
 │   │   ├── WhyUs.jsx
 │   │   ├── Process.jsx
 │   │   ├── Portfolio.jsx
@@ -92,15 +91,14 @@ src/
 
 ## Home Page Sections (in order)
 
-1. **Hero** — Bold headline, floating browser/mobile mockups, stats row, CTA buttons
+1. **Hero** — Bold headline, description, CTA buttons
 2. **Services** — Two service cards: Web Development + App Development
-3. **TechStack** — Technology badges (React, Next.js, Flutter, Node.js, etc.)
-4. **WhyUs** — 6 differentiator cards (speed, quality, design, ROI, security, support)
-5. **Process** — 5-step delivery process (Discovery → Design → Build → Test → Launch)
-6. **Portfolio** — 4 featured project cards with tech stack and metrics
-7. **Testimonials** — 6 client testimonials in a 3-column grid
-8. **Pricing** — 3 pricing tiers (Starter $999 / Professional $2,499 / Enterprise custom)
-9. **CTABanner** — Final call-to-action
+3. **WhyUs** — 6 differentiator cards (speed, quality, design, ROI, security, support)
+4. **Process** — 5-step delivery process (Discovery → Design → Build → Test → Launch)
+5. **Portfolio** — 4 featured project cards with tech stack and metrics
+6. **Testimonials** — 6 client testimonials in a 3-column grid
+7. **Pricing** — 3 pricing tiers (Starter $999 / Professional $2,499 / Enterprise custom)
+8. **CTABanner** — Final call-to-action
 
 ---
 

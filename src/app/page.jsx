@@ -1,6 +1,5 @@
 import Hero from '@/components/home/Hero';
 import Services from '@/components/home/Services';
-import TechStack from '@/components/home/TechStack';
 import WhyUs from '@/components/home/WhyUs';
 import Process from '@/components/home/Process';
 import Portfolio from '@/components/home/Portfolio';
@@ -13,7 +12,6 @@ export default function HomePage() {
     <main className="overflow-x-hidden">
       <Hero />
       <Services />
-      <TechStack />
       <WhyUs />
       <Process />
       <Portfolio />

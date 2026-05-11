@@ -2,22 +2,16 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Globe, Smartphone, CheckCircle2, Zap, Users, Award } from 'lucide-react';
+import { ArrowRight, Star, Globe, Smartphone, Zap, Users, Award } from 'lucide-react';
 
 const stats = [
-  { value: '50+', label: 'Projects Delivered', icon: Award },
-  { value: '40+', label: 'Happy Clients', icon: Users },
+  { value: '5+', label: 'Projects Delivered', icon: Award },
+  { value: '5+', label: 'Happy Clients', icon: Users },
   { value: '3x', label: 'Avg. ROI', icon: Zap },
   { value: '5★', label: 'Client Rating', icon: Star },
 ];
 
-const badges = [
-  'React & Next.js',
-  'Flutter & React Native',
-  'Node.js APIs',
-  'Tailwind CSS',
-  'PostgreSQL',
-];
+
 
 export default function Hero() {
   return (
@@ -40,16 +34,6 @@ export default function Hero() {
 
           {/* Copy */}
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="section-label mb-6"
-            >
-              <Zap size={11} />
-              Web &amp; App Development Agency
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -89,22 +73,7 @@ export default function Hero() {
               </Link>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="flex flex-wrap gap-2"
-            >
-              {badges.map((b) => (
-                <span
-                  key={b}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-foreground/5 border border-border text-muted-foreground"
-                >
-                  <CheckCircle2 size={10} className="text-primary" />
-                  {b}
-                </span>
-              ))}
-            </motion.div>
+
           </div>
 
           {/* Visual */}
