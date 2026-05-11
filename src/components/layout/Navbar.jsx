@@ -61,7 +61,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/">
-            <Image src="/logo.png" alt={site.name} width={320} height={100} className="h-28 w-auto object-contain" />
+            <div className="flex items-center justify-center">
+              <Image src="/logo1.png" alt={site.name} width={150} height={100} className="h-15 w-auto object-contain " loading="eager" />
+              <span className="font-bold text-xl">{site.name}</span>
+            </div>
           </Link>
 
           {/* Desktop Nav — fades out on scroll */}

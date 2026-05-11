@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import VoiceHero from '@/components/services/voice-ai/VoiceHero';
 import VoiceFeatures from '@/components/services/voice-ai/VoiceFeatures';
 import VoiceProcess from '@/components/services/voice-ai/VoiceProcess';

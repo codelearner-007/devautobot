@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import AutomationHero from '@/components/services/ai-automation/AutomationHero';
 import AutomationFeatures from '@/components/services/ai-automation/AutomationFeatures';
 import AutomationProcess from '@/components/services/ai-automation/AutomationProcess';
