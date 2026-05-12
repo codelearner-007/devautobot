@@ -38,6 +38,11 @@ export const metadata = {
     description: site.description,
     creator: site.social.twitter,
   },
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
   robots: {
     index: true,
     follow: true,
