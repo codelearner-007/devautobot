@@ -74,6 +74,22 @@ src/
 │   ├── layout/
 │   │   ├── Navbar.jsx
 │   │   └── Footer.jsx
+│   ├── services/
+│   │   ├── WebDevHero.jsx
+│   │   ├── AppDevHero.jsx
+│   │   ├── ServicePricing.jsx
+│   │   ├── web-development/
+│   │   │   ├── WebServicesGrid.jsx
+│   │   │   ├── WebApproach.jsx
+│   │   │   ├── WebTechStack.jsx
+│   │   │   ├── WebFaq.jsx
+│   │   │   └── WebCta.jsx
+│   │   └── app-development/
+│   │       ├── AppCapabilitiesGrid.jsx
+│   │       ├── AppCommitment.jsx
+│   │       ├── AppTechStack.jsx
+│   │       ├── AppFaq.jsx
+│   │       └── AppCta.jsx
 │   ├── theme-provider.jsx
 │   └── ui/
 │       ├── AnimatedSection.jsx
@@ -81,8 +97,22 @@ src/
 │       ├── ThemeToggle.jsx
 │       └── TiltCard.jsx
 │
+├── data/
+│   └── services/
+│       ├── web-development/
+│       │   ├── webServices.js
+│       │   ├── webTech.js
+│       │   ├── webFaqs.js
+│       │   └── webApproach.js
+│       └── app-development/
+│           ├── appServices.js
+│           ├── appTech.js
+│           ├── appFaqs.js
+│           └── appCommitment.js
+│
 └── lib/
     ├── animations.js
+    ├── serviceStyles.js
     ├── site.js
     └── utils.js
 ```

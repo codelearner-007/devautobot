@@ -12,8 +12,8 @@ export default function HomePage() {
     <main className="overflow-x-hidden">
       <Hero />
       <Services />
-      <WhyUs />
       <Process />
+      <WhyUs />
       <Portfolio />
       <Testimonials />
       <Pricing />

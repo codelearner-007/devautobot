@@ -19,6 +19,7 @@ export const site = {
     twitterHref: '#',
     linkedin: '#',
     github: '#',
-    instagram: '#',
+    instagram: 'https://www.instagram.com/devautobot/',
+    facebook: 'https://www.facebook.com/profile.php?id=61589633399540',
   },
 };

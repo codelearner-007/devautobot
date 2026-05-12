@@ -2,18 +2,14 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { site } from '@/lib/site';
 
 export default function CTABanner() {
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute inset-0 opacity-5 dark:opacity-8"
-          style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, var(--color-primary) 0%, transparent 70%)' }}
-        />
-      </div>
+    <section className="relative py-28 overflow-hidden">
+
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(6,182,212,0.08),transparent)]" />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
@@ -22,12 +18,12 @@ export default function CTABanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="section-label mx-auto mb-6">
-            <Sparkles size={11} />
-            Let's Work Together
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/25 bg-primary/8 text-primary text-[0.65rem] font-bold uppercase tracking-widest mb-7">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            Let&apos;s Work Together
           </div>
 
-          <h2 className="section-heading text-4xl sm:text-5xl lg:text-6xl mb-6">
+          <h2 className="section-heading text-4xl sm:text-5xl lg:text-6xl mb-6 leading-tight">
             Ready to Build
             <br />
             <span className="gradient-text">Something Exceptional?</span>
@@ -54,7 +50,7 @@ export default function CTABanner() {
             </a>
           </div>
 
-          <p className="mt-6 text-sm text-muted-foreground">
+          <p className="mt-6 text-sm text-muted-foreground/60">
             Free consultation · No commitment · Response within 24 hours
           </p>
         </motion.div>

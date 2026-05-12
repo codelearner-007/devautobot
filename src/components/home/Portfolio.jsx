@@ -2,66 +2,67 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Globe, Smartphone, ShoppingCart, LayoutDashboard } from 'lucide-react';
+import { ArrowUpRight, Smartphone, ShoppingCart, LayoutDashboard } from 'lucide-react';
 
 const projects = [
   {
-    title: 'EcoStore — E-Commerce Platform',
-    category: 'Web Development',
+    title: 'EcoStore',
+    subtitle: 'E-Commerce Platform',
+    category: 'Web Dev',
     type: 'E-Commerce',
     icon: ShoppingCart,
-    description:
-      'A full-featured online store with product catalog, cart, Stripe payments, order tracking, and an admin dashboard. Built with Next.js and Tailwind CSS.',
-    tech: ['Next.js', 'Tailwind CSS', 'Stripe', 'Sanity CMS', 'PostgreSQL'],
-    metric: '+180% conversion rate',
+    description: 'Full-featured online store with product catalog, Stripe payments, order tracking, and an admin dashboard. Built on Next.js with a headless CMS.',
+    tech: ['Next.js', 'Stripe', 'Sanity CMS', 'PostgreSQL'],
+    metric: '+180% conversion',
   },
   {
-    title: 'FitTrack — Fitness Mobile App',
-    category: 'App Development',
+    title: 'FitTrack',
+    subtitle: 'Fitness Mobile App',
+    category: 'App Dev',
     type: 'Mobile App',
     icon: Smartphone,
-    description:
-      'A cross-platform fitness app for iOS & Android. Features workout logging, progress charts, push notifications, and social sharing. Built with Flutter.',
-    tech: ['Flutter', 'Firebase', 'Node.js', 'Push Notifications', 'Charts'],
+    description: 'Cross-platform fitness app for iOS & Android with workout logging, progress charts, and social sharing.',
+    tech: ['Flutter', 'Firebase', 'Node.js'],
     metric: '10k+ downloads',
   },
   {
-    title: 'PropVision — Real Estate Platform',
-    category: 'Web Development',
+    title: 'PropVision',
+    subtitle: 'Real Estate Platform',
+    category: 'Web Dev',
     type: 'Web App',
     icon: LayoutDashboard,
-    description:
-      'A property listing and management platform with map integration, advanced filters, virtual tours, and a CRM dashboard for real estate agents.',
-    tech: ['React', 'Node.js', 'Google Maps', 'MongoDB', 'Cloudinary'],
+    description: 'Property listing platform with map integration, virtual tours, and a CRM dashboard for real estate agents.',
+    tech: ['React', 'Google Maps', 'MongoDB'],
     metric: '5x faster search',
-  },
-  {
-    title: 'MealBox — Food Delivery App',
-    category: 'App Development',
-    type: 'Mobile App',
-    icon: Globe,
-    description:
-      'A React Native food delivery app with real-time order tracking, restaurant management portal, and integrated payment gateway. Fully cross-platform.',
-    tech: ['React Native', 'Express.js', 'Socket.io', 'Stripe', 'PostgreSQL'],
-    metric: '30min avg delivery',
   },
 ];
 
+const dotPattern = {
+  backgroundImage: 'radial-gradient(rgba(6,182,212,0.18) 1px, transparent 1px)',
+  backgroundSize: '18px 18px',
+};
+
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-24 bg-card/40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className="relative py-28 overflow-hidden">
 
-        <div className="text-center mb-14">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_100%_50%,rgba(6,182,212,0.05),transparent)]" />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="section-label mx-auto mb-4"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/25 bg-primary/8 text-primary text-[0.65rem] font-bold uppercase tracking-widest mb-6"
           >
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             Recent Work
           </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -69,9 +70,10 @@ export default function Portfolio() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="section-heading text-4xl sm:text-5xl mb-4"
           >
-            Projects We're{' '}
+            Projects We&apos;re{' '}
             <span className="gradient-text">Proud Of</span>
           </motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,63 +81,64 @@ export default function Portfolio() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="text-muted-foreground text-lg max-w-2xl mx-auto"
           >
-            A selection of websites and apps we've built for clients across industries.
-            Each project is crafted with care and delivered with measurable results.
+            A selection of websites and apps built for clients across industries —
+            each delivered with care and measurable results.
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* 3-column grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {projects.map((p, i) => {
             const Icon = p.icon;
             return (
               <motion.div
                 key={p.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.08 }}
-                className="glass-card p-6 border border-border hover:border-primary/25 transition-all duration-300 group hover:-translate-y-1"
+                transition={{ duration: 0.55, delay: i * 0.09 }}
+                className="group relative rounded-3xl border border-foreground/10 bg-foreground/[0.02] overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_50px_rgba(6,182,212,0.09)] hover:-translate-y-1 cursor-default"
               >
-                {/* Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <Icon size={17} className="text-primary" />
-                    </div>
-                    <div>
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-primary">{p.category}</span>
-                      <p className="text-[10px] text-muted-foreground">{p.type}</p>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-primary/8 text-primary border border-primary/15">
-                    {p.metric}
-                  </span>
-                </div>
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/45 to-transparent" />
 
-                {/* Preview */}
+                {/* Preview strip */}
                 <div
-                  className="h-32 rounded-xl border border-primary/10 mb-5 flex items-center justify-center"
-                  style={{ background: 'linear-gradient(135deg, color-mix(in oklch, var(--color-primary) 10%, transparent), color-mix(in oklch, var(--color-primary) 4%, transparent))' }}
+                  className="relative h-44 overflow-hidden border-b border-foreground/6 bg-gradient-to-br from-primary/7 via-primary/3 to-transparent"
+                  style={dotPattern}
                 >
-                  <Icon size={40} className="text-primary opacity-15" />
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_65%_at_50%_60%,rgba(6,182,212,0.08),transparent)]" />
+                  <Icon size={68} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-primary/10 group-hover:text-primary/16 transition-colors duration-500" />
+
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[9px] font-bold uppercase tracking-widest text-primary bg-primary/10 border border-primary/25 px-2.5 py-0.5 rounded-full">
+                        {p.category}
+                      </span>
+                      <span className="text-[9px] text-muted-foreground">{p.type}</span>
+                    </div>
+                    <span className="text-[9px] font-semibold px-2.5 py-0.5 rounded-full bg-primary/12 text-primary border border-primary/25">
+                      {p.metric}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="font-heading font-bold text-lg mb-2">{p.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{p.description}</p>
+                <div className="p-5 flex flex-col">
+                  <h3 className="font-heading font-bold text-base text-foreground leading-tight mb-0.5">{p.title}</h3>
+                  <p className="text-xs text-primary/65 font-medium mb-2.5">{p.subtitle}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-4">{p.description}</p>
 
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-1.5 mb-5">
-                  {p.tech.map((t) => (
-                    <span key={t} className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-foreground/5 border border-border text-muted-foreground">
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {p.tech.map((t) => (
+                      <span key={t} className="text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-foreground/[0.05] border border-foreground/10 text-muted-foreground">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
 
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                  View Case Study
-                  <ArrowUpRight size={13} />
+                  <span className="flex items-center gap-1 text-[10px] font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    View Case Study <ArrowUpRight size={11} />
+                  </span>
                 </div>
               </motion.div>
             );
@@ -147,13 +150,14 @@ export default function Portfolio() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-center mt-10"
+          className="text-center mt-14"
         >
           <Link href="/contact" className="btn-secondary">
             Discuss Your Project
             <ArrowUpRight size={15} />
           </Link>
         </motion.div>
+
       </div>
     </section>
   );

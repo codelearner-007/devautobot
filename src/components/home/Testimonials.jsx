@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 const testimonials = [
   {
@@ -28,37 +28,13 @@ const testimonials = [
     text: 'We had a complex real estate platform with maps, filters, and a full CRM. DevAutobot nailed it. The performance improvements alone saved us thousands in infrastructure costs.',
     tag: 'Web Application',
   },
-  {
-    name: 'David Chen',
-    role: 'Co-founder, MealBox',
-    avatar: 'DC',
-    rating: 5,
-    text: 'Our food delivery app needed real-time tracking and multiple user roles. DevAutobot architected the whole system beautifully. We launched on time and the app has zero downtime so far.',
-    tag: 'React Native App',
-  },
-  {
-    name: 'Priya Sharma',
-    role: 'Director, Luxe Interiors',
-    avatar: 'PS',
-    rating: 5,
-    text: 'From the very first call, the team understood our brand and vision. The website they created is a masterpiece — our clients constantly compliment it. Worth every penny.',
-    tag: 'Corporate Website',
-  },
-  {
-    name: 'Tom Eriksson',
-    role: 'CTO, DataSync Solutions',
-    avatar: 'TE',
-    rating: 5,
-    text: 'We needed a scalable dashboard with complex data visualisations. DevAutobot delivered clean, well-documented code that our team can easily maintain and extend. Excellent engineers.',
-    tag: 'SaaS Dashboard',
-  },
 ];
 
-function StarRating({ count }) {
+function Stars({ count }) {
   return (
     <div className="flex items-center gap-0.5">
       {[...Array(count)].map((_, i) => (
-        <Star key={i} size={12} className="text-primary fill-primary" />
+        <Star key={i} size={11} className="text-yellow-400 fill-yellow-400" />
       ))}
     </div>
   );
@@ -66,19 +42,25 @@ function StarRating({ count }) {
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-28 overflow-hidden">
 
-        <div className="text-center mb-14">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_0%_50%,rgba(6,182,212,0.05),transparent)]" />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="section-label mx-auto mb-4"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/25 bg-primary/8 text-primary text-[0.65rem] font-bold uppercase tracking-widest mb-6"
           >
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             Client Love
           </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -89,6 +71,7 @@ export default function Testimonials() {
             What Our Clients{' '}
             <span className="gradient-text">Actually Say</span>
           </motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -96,48 +79,53 @@ export default function Testimonials() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="text-muted-foreground text-lg max-w-xl mx-auto"
           >
-            Don't take our word for it. Here's what the people we've built for have to say.
+            Don&apos;t take our word for it. Here&apos;s what the people we&apos;ve built for have to say.
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.07 }}
-              className="glass-card-hover p-6"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="group relative rounded-2xl border border-white/8 bg-white/[0.025] overflow-hidden transition-all duration-300 hover:border-primary/25 hover:shadow-[0_0_40px_rgba(6,182,212,0.07)] cursor-default"
             >
-              <Quote size={20} className="text-primary/30 mb-4" />
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                "{t.text}"
-              </p>
+              <div className="p-6 h-full flex flex-col">
 
-              <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-primary/8 text-primary border border-primary/15 mb-4 inline-block">
-                {t.tag}
-              </span>
+                {/* Quote mark */}
+                <div className="text-primary/20 font-serif text-5xl leading-none select-none mb-1">&ldquo;</div>
 
-              <div className="flex items-center gap-3 pt-4 border-t border-border">
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-primary-foreground"
-                  style={{ background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-light))' }}
-                >
-                  {t.avatar}
+                <div className="flex-1 flex flex-col">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
+                    {t.text}
+                  </p>
+
+                  <span className="text-[0.6rem] font-bold uppercase tracking-[0.15em] text-primary/80 border border-primary/20 bg-primary/8 px-3 py-1 rounded-full self-start mb-5">
+                    {t.tag}
+                  </span>
+
+                  <div className="flex items-center gap-3 pt-4 border-t border-white/6">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-primary/50 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                      {t.avatar}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-foreground truncate blur-[4px] select-none">{t.name}</p>
+                      <p className="text-xs text-muted-foreground truncate blur-[4px] select-none">{t.role}</p>
+                    </div>
+                    <Stars count={t.rating} />
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}</p>
-                </div>
-                <div className="ml-auto">
-                  <StarRating count={t.rating} />
-                </div>
+
               </div>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );
