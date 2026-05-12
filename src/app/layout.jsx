@@ -40,6 +40,10 @@ const jsonLd = {
 };
 
 export const metadata = {
+  metadataBase: new URL(site.url),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: `${site.name} — ${site.tagline}`,
     template: `%s | ${site.name}`,

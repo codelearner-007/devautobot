@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.devautobot.com" }],
+      "destination": "https://devautobot.com/:path*",
+      "permanent": true
+    }
+  ]
+}
