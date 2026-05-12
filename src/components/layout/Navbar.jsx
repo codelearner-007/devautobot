@@ -11,10 +11,8 @@ import { site } from '@/lib/site';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const services = [
-  { name: 'Website Development', href: '/services/website-dev' },
-  { name: 'Voice AI Calling Agents', href: '/services/voice-ai' },
-  { name: 'AI Avatars', href: '/services/ai-avatars' },
-  { name: 'AI Agents & Automation', href: '/services/ai-automation' },
+  { name: 'Website Development', href: '/services/web-development' },
+  { name: 'App Development', href: '/services/app-development' },
 ];
 
 const navLinks = [
