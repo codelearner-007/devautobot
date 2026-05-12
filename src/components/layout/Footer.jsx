@@ -61,7 +61,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <Image src="/logo1.png" alt={site.name} width={140} height={40} className="h-20 w-auto object-contain -translate-y-2" />
+              <Image src="/logo.png" alt={site.name} width={140} height={40} className="h-20 w-auto object-contain -translate-y-2" />
               <span className="font-heading font-800 text-lg tracking-tight bg-gradient-to-r from-[#4a5262] via-[#9ca3af] to-[#22d3ee] bg-clip-text text-transparent">
                 {site.name}
               </span>

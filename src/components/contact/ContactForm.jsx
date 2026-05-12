@@ -17,6 +17,7 @@ const IconFacebook = () => (
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
   </svg>
 );
+import Image from 'next/image';
 import { site } from '@/lib/site';
 
 const services = [
@@ -174,6 +175,14 @@ export default function ContactForm() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
+          {/* Logo + brand name */}
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Image src="/logo.png" alt={site.name} width={120} height={34} className="h-10 w-auto object-contain" />
+            <span className="font-heading text-xl tracking-tight bg-gradient-to-r from-[#4a5262] via-[#9ca3af] to-[#22d3ee] bg-clip-text text-transparent">
+              {site.name}
+            </span>
+          </div>
+
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/25 bg-primary/8 text-primary text-[0.65rem] font-bold uppercase tracking-widest mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             Get in Touch

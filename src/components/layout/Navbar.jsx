@@ -24,7 +24,7 @@ const navLinks = [
 
 const LogoContent = () => (
   <>
-    <Image src="/logo1.png" alt={site.name} width={140} height={40} className="h-11 w-auto object-contain" loading="eager" />
+    <Image src="/logo.png" alt={site.name} width={140} height={40} className="h-11 w-auto object-contain" loading="eager" />
     <span className="font-heading  text-lg tracking-tight hidden sm:block bg-gradient-to-r from-[#4a5262] via-[#9ca3af] to-[#22d3ee] bg-clip-text text-transparent translate-y-1">
       {site.name}
     </span>
@@ -32,9 +32,9 @@ const LogoContent = () => (
 );
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled]   = useState(false);
-  const [isVisible, setIsVisible]     = useState(true);
-  const [mobileOpen, setMobileOpen]   = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const pathname = usePathname();
 
