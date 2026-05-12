@@ -43,6 +43,9 @@ export const metadata = {
     shortcut: '/logo.png',
     apple: '/logo.png',
   },
+  verification: {
+    google: 'ZDQOMOH-jhq-wfkacKC--15OiRJ6oPPgmvAE1osPzsE',
+  },
   robots: {
     index: true,
     follow: true,
