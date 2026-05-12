@@ -104,9 +104,12 @@ export default function Hero() {
                 Start Your Project
                 <ArrowRight size={16} />
               </Link>
-              <Link href="/#portfolio" className="btn-secondary">
+              <button
+                className="btn-secondary"
+                onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 See Our Work
-              </Link>
+              </button>
             </motion.div>
           </div>
 
