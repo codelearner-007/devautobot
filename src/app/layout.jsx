@@ -78,9 +78,16 @@ export const metadata = {
     creator: site.social.twitter,
   },
   icons: {
-    icon: '/logo.png',
+    icon: [
+      { url: '/logo.png', sizes: '48x48', type: 'image/png' },
+      { url: '/logo.png', sizes: '72x72', type: 'image/png' },
+      { url: '/logo.png', sizes: '96x96', type: 'image/png' },
+      { url: '/logo.png', sizes: '144x144', type: 'image/png' },
+      { url: '/logo.png', sizes: '192x192', type: 'image/png' },
+      { url: '/logo.png', sizes: '512x512', type: 'image/png' },
+    ],
     shortcut: '/logo.png',
-    apple: '/logo.png',
+    apple: [{ url: '/logo.png', sizes: '180x180', type: 'image/png' }],
   },
   verification: {
     google: 'ZDQOMOH-jhq-wfkacKC--15OiRJ6oPPgmvAE1osPzsE',
