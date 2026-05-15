@@ -9,7 +9,7 @@ const stats = [
   { value: '2–3', label: 'Weeks Avg. Delivery' },
   { value: '98', label: 'Lighthouse Score' },
   { value: '100%', label: 'Mobile Optimised' },
-  { value: '50+', label: 'Sites Delivered' },
+  { value: '5+', label: 'Sites Delivered' },
 ];
 
 export default function WebDevHero() {
