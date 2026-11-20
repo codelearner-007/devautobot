@@ -130,7 +130,7 @@ src/
 2. **Services** — Two service cards: Web Development + App Development
 3. **WhyUs** — 6 differentiator cards (speed, quality, design, ROI, security, support)
 4. **Process** — 5-step delivery process (Discovery → Design → Build → Test → Launch)
-5. **Portfolio** — 2 real project cards from `src/data/portfolio/projects.js`: Ultimate CashBook (mobile app + website, links to ultimatecashbook.app) and BookVault (multi-tenant accounting SaaS, links to /contact for a demo). Each card's preview is a `ProjectCarousel` (auto-plays every 4s, pauses on hover/focus, swipe/drag, dot buttons, no autoplay with reduced motion). CashBook slides: 3 phone screenshots; BookVault slides: coded Summary screen mock (Balance Sheet + Profit and Loss, sample figures) + logo. Images live in `public/portfolio/`
+5. **Portfolio** — 2 real project cards from `src/data/portfolio/projects.js`: Ultimate CashBook (mobile app + website, links to ultimatecashbook.app) and BookVault (multi-tenant accounting SaaS, "Open App" links to app.bookvaultpk.workers.dev). Each card's preview is a `ProjectCarousel` (auto-plays every 4s, pauses on hover/focus, swipe/drag, dot buttons, no autoplay with reduced motion). CashBook slides: 3 phone screenshots; BookVault slides: coded Summary screen mock (Balance Sheet + Profit and Loss, sample figures) + logo. Images live in `public/portfolio/`
 6. **Testimonials** — 6 client testimonials in a 3-column grid
 7. **Pricing** — 3 pricing tiers (Starter $999 / Professional $2,499 / Enterprise custom)
 8. **CTABanner** — Final call-to-action

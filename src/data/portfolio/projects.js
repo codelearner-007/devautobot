@@ -39,7 +39,7 @@ export const projects = [
       'Hosted double-entry accounting for small and medium businesses. Owners run several businesses, turn modules on per business (sales, purchases, banking, inventory, payroll, assets) and give staff per-tab View, Create, Edit and Delete access.',
     highlights: ['Double-entry ledger', 'Per-tab permissions', 'Invoices & reports', 'Multi-business'],
     tech: ['Next.js', 'React 19', 'FastAPI', 'PostgreSQL', 'Supabase'],
-    href: null,
-    linkLabel: 'Request a Demo',
+    href: 'https://app.bookvaultpk.workers.dev',
+    linkLabel: 'Open App',
   },
 ];
