@@ -1,57 +1,70 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Smartphone, ShoppingCart, LayoutDashboard } from 'lucide-react';
+import { ArrowUpRight, Check } from 'lucide-react';
+import { projects } from '@/data/portfolio/projects';
 
-const projects = [
-  {
-    title: 'EcoStore',
-    subtitle: 'E-Commerce Platform',
-    category: 'Web Dev',
-    type: 'E-Commerce',
-    icon: ShoppingCart,
-    description: 'Full-featured online store with product catalog, Stripe payments, order tracking, and an admin dashboard. Built on Next.js with a headless CMS.',
-    tech: ['Next.js', 'Stripe', 'Sanity CMS', 'PostgreSQL'],
-    metric: '+180% conversion',
-  },
-  {
-    title: 'FitTrack',
-    subtitle: 'Fitness Mobile App',
-    category: 'App Dev',
-    type: 'Mobile App',
-    icon: Smartphone,
-    description: 'Cross-platform fitness app for iOS & Android with workout logging, progress charts, and social sharing.',
-    tech: ['Flutter', 'Firebase', 'Node.js'],
-    metric: '10k+ downloads',
-  },
-  {
-    title: 'PropVision',
-    subtitle: 'Real Estate Platform',
-    category: 'Web Dev',
-    type: 'Web App',
-    icon: LayoutDashboard,
-    description: 'Property listing platform with map integration, virtual tours, and a CRM dashboard for real estate agents.',
-    tech: ['React', 'Google Maps', 'MongoDB'],
-    metric: '5x faster search',
-  },
-];
+function ProjectLink({ project }) {
+  const className =
+    'inline-flex items-center gap-1.5 min-h-11 px-4 rounded-full text-sm font-semibold text-primary border border-primary/30 bg-primary/8 hover:bg-primary/15 transition-colors duration-200';
 
-const dotPattern = {
-  backgroundImage: 'radial-gradient(rgba(6,182,212,0.18) 1px, transparent 1px)',
-  backgroundSize: '18px 18px',
-};
+  if (project.href) {
+    return (
+      <a href={project.href} target="_blank" rel="noopener noreferrer" className={className}>
+        {project.linkLabel}
+        <ArrowUpRight size={15} />
+      </a>
+    );
+  }
+
+  return (
+    <Link href="/contact" className={className}>
+      {project.linkLabel}
+      <ArrowUpRight size={15} />
+    </Link>
+  );
+}
+
+function ProjectVisual({ project }) {
+  if (project.imageKind === 'screenshot') {
+    return (
+      <Image
+        src={project.image}
+        alt={project.imageAlt}
+        width={1086}
+        height={1448}
+        sizes="(min-width: 768px) 220px, 180px"
+        className="absolute left-1/2 top-8 w-40 sm:w-48 md:w-52 -translate-x-1/2 rounded-2xl border border-foreground/10 shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
+      />
+    );
+  }
+
+  return (
+    <div className="absolute inset-0 flex items-center justify-center">
+      <Image
+        src={project.image}
+        alt={project.imageAlt}
+        width={512}
+        height={512}
+        sizes="128px"
+        className="w-24 sm:w-28 md:w-32 rounded-3xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
+      />
+    </div>
+  );
+}
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="relative py-28 overflow-hidden">
+    <section id="portfolio" className="relative py-20 sm:py-28 overflow-hidden">
 
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_100%_50%,rgba(6,182,212,0.05),transparent)]" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -68,10 +81,10 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="section-heading text-4xl sm:text-5xl mb-4"
+            className="section-heading text-3xl sm:text-4xl md:text-5xl mb-4"
           >
-            Projects We&apos;re{' '}
-            <span className="gradient-text">Proud Of</span>
+            Projects We&apos;ve{' '}
+            <span className="gradient-text">Built</span>
           </motion.h2>
 
           <motion.p
@@ -79,70 +92,70 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-muted-foreground text-lg max-w-2xl mx-auto"
+            className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto"
           >
-            A selection of websites and apps built for clients across industries —
-            each delivered with care and measurable results.
+            A mobile app and a SaaS web platform, designed and built end to end —
+            from database and API to the screens people use every day.
           </motion.p>
         </div>
 
-        {/* 3-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {projects.map((p, i) => {
-            const Icon = p.icon;
-            return (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.09 }}
-                className="group relative rounded-3xl border border-foreground/10 bg-foreground/[0.02] overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_50px_rgba(6,182,212,0.09)] hover:-translate-y-1 cursor-default"
-              >
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/45 to-transparent" />
+        {/* 2-column grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+          {projects.map((p, i) => (
+            <motion.article
+              key={p.slug}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: i * 0.09 }}
+              className="group relative flex flex-col rounded-3xl border border-foreground/10 bg-foreground/[0.02] overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_50px_rgba(6,182,212,0.09)] hover:-translate-y-1"
+            >
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/45 to-transparent z-10" />
 
-                {/* Preview strip */}
-                <div
-                  className="relative h-44 overflow-hidden border-b border-foreground/6 bg-gradient-to-br from-primary/7 via-primary/3 to-transparent"
-                  style={dotPattern}
-                >
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_65%_at_50%_60%,rgba(6,182,212,0.08),transparent)]" />
-                  <Icon size={68} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-primary/10 group-hover:text-primary/16 transition-colors duration-500" />
+              {/* Preview */}
+              <div className="relative h-60 sm:h-64 md:h-72 overflow-hidden border-b border-foreground/6 bg-gradient-to-br from-primary/10 via-primary/4 to-transparent bg-[radial-gradient(rgba(6,182,212,0.18)_1px,transparent_1px)] bg-[length:18px_18px]">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_65%_at_50%_60%,rgba(6,182,212,0.10),transparent)]" />
+                <ProjectVisual project={p} />
 
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-primary bg-primary/10 border border-primary/25 px-2.5 py-0.5 rounded-full">
-                        {p.category}
-                      </span>
-                      <span className="text-[9px] text-muted-foreground">{p.type}</span>
-                    </div>
-                    <span className="text-[9px] font-semibold px-2.5 py-0.5 rounded-full bg-primary/12 text-primary border border-primary/25">
-                      {p.metric}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-5 flex flex-col">
-                  <h3 className="font-heading font-bold text-base text-foreground leading-tight mb-0.5">{p.title}</h3>
-                  <p className="text-xs text-primary/65 font-medium mb-2.5">{p.subtitle}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-4">{p.description}</p>
-
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {p.tech.map((t) => (
-                      <span key={t} className="text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-foreground/[0.05] border border-foreground/10 text-muted-foreground">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  <span className="flex items-center gap-1 text-[10px] font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    View Case Study <ArrowUpRight size={11} />
+                <div className="absolute top-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 z-10">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-primary bg-background/80 backdrop-blur border border-primary/25 px-2.5 py-0.5 rounded-full">
+                    {p.category}
+                  </span>
+                  <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-background/80 backdrop-blur text-muted-foreground border border-foreground/10">
+                    {p.type}
                   </span>
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+
+              {/* Content */}
+              <div className="p-5 sm:p-6 flex flex-col flex-1">
+                <h3 className="font-heading font-bold text-lg sm:text-xl text-foreground leading-tight mb-1">{p.title}</h3>
+                <p className="text-xs sm:text-sm text-primary/75 font-medium mb-3">{p.subtitle}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{p.description}</p>
+
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 mb-5">
+                  {p.highlights.map((h) => (
+                    <li key={h} className="flex items-center gap-2 text-xs sm:text-sm text-foreground/80">
+                      <Check size={14} className="text-primary shrink-0" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {p.tech.map((t) => (
+                    <span key={t} className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-foreground/[0.05] border border-foreground/10 text-muted-foreground">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-auto">
+                  <ProjectLink project={p} />
+                </div>
+              </div>
+            </motion.article>
+          ))}
         </div>
 
         <motion.div
@@ -150,7 +163,7 @@ export default function Portfolio() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-center mt-14"
+          className="text-center mt-12 sm:mt-14"
         >
           <Link href="/contact" className="btn-secondary">
             Discuss Your Project
