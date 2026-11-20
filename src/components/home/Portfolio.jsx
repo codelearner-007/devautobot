@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Check } from 'lucide-react';
 import { projects } from '@/data/portfolio/projects';
+import ProjectCarousel from '@/components/home/portfolio/ProjectCarousel';
 
 function ProjectLink({ project }) {
   const className =
@@ -24,34 +24,6 @@ function ProjectLink({ project }) {
       {project.linkLabel}
       <ArrowUpRight size={15} />
     </Link>
-  );
-}
-
-function ProjectVisual({ project }) {
-  if (project.imageKind === 'screenshot') {
-    return (
-      <Image
-        src={project.image}
-        alt={project.imageAlt}
-        width={1086}
-        height={1448}
-        sizes="(min-width: 768px) 220px, 180px"
-        className="absolute left-1/2 top-8 w-40 sm:w-48 md:w-52 -translate-x-1/2 rounded-2xl border border-foreground/10 shadow-2xl transition-transform duration-500 group-hover:-translate-y-2"
-      />
-    );
-  }
-
-  return (
-    <div className="absolute inset-0 flex items-center justify-center">
-      <Image
-        src={project.image}
-        alt={project.imageAlt}
-        width={512}
-        height={512}
-        sizes="128px"
-        className="w-24 sm:w-28 md:w-32 rounded-3xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
-      />
-    </div>
   );
 }
 
@@ -113,11 +85,11 @@ export default function Portfolio() {
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/45 to-transparent z-10" />
 
               {/* Preview */}
-              <div className="relative h-60 sm:h-64 md:h-72 overflow-hidden border-b border-foreground/6 bg-gradient-to-br from-primary/10 via-primary/4 to-transparent bg-[radial-gradient(rgba(6,182,212,0.18)_1px,transparent_1px)] bg-[length:18px_18px]">
+              <div className="relative h-72 md:h-80 overflow-hidden border-b border-foreground/6 bg-gradient-to-br from-primary/10 via-primary/4 to-transparent bg-[radial-gradient(rgba(6,182,212,0.18)_1px,transparent_1px)] bg-[length:18px_18px]">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_65%_at_50%_60%,rgba(6,182,212,0.10),transparent)]" />
-                <ProjectVisual project={p} />
+                <ProjectCarousel slides={p.slides} title={p.title} />
 
-                <div className="absolute top-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 z-10">
+                <div className="pointer-events-none absolute top-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 z-10">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-primary bg-background/80 backdrop-blur border border-primary/25 px-2.5 py-0.5 rounded-full">
                     {p.category}
                   </span>
