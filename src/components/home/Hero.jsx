@@ -237,7 +237,7 @@ export default function Hero() {
                 <div className="space-y-3 mb-4">
                   <div>
                     <div className="flex justify-between items-center mb-1.5">
-                      <span className="text-[11px] font-medium text-foreground/70">Flutter</span>
+                      <span className="text-[11px] font-medium text-foreground/70">React Native</span>
                       <span className="text-[10px] text-primary font-semibold">85%</span>
                     </div>
                     <div className="h-2 rounded-full bg-foreground/8 overflow-hidden">
@@ -252,7 +252,7 @@ export default function Hero() {
                   </div>
                   <div>
                     <div className="flex justify-between items-center mb-1.5">
-                      <span className="text-[11px] font-medium text-foreground/70">Firebase</span>
+                      <span className="text-[11px] font-medium text-foreground/70">Supabase</span>
                       <span className="text-[10px] text-primary font-semibold">70%</span>
                     </div>
                     <div className="h-2 rounded-full bg-foreground/8 overflow-hidden">

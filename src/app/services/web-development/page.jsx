@@ -1,5 +1,6 @@
 import WebDevHero from '@/components/services/WebDevHero';
 import ServicePricing from '@/components/services/ServicePricing';
+import ServiceProjects from '@/components/services/ServiceProjects';
 import WebServicesGrid from '@/components/services/web-development/WebServicesGrid';
 import WebApproach from '@/components/services/web-development/WebApproach';
 import WebTechStack from '@/components/services/web-development/WebTechStack';
@@ -16,6 +17,7 @@ export default function WebDevelopmentPage() {
     <main className="overflow-x-hidden">
       <WebDevHero />
       <WebServicesGrid />
+      <ServiceProjects kind="web" />
       <WebApproach />
       <WebTechStack />
       <WebFaq />

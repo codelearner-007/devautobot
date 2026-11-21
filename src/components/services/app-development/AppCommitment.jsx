@@ -19,12 +19,12 @@ export default function AppCommitment() {
               <span className="gradient-text">Native, Cost Like Cross-Platform</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-5">
-              Using Flutter and React Native, we deliver apps with smooth 60fps animations,
+              Using React Native and Expo, we deliver apps with smooth 60fps animations,
               native device integrations, and platform-specific UI — at a fraction of the cost
               of building two separate native apps.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              We build the whole stack: mobile frontend, REST or GraphQL API, cloud infrastructure,
+              We build the whole stack: mobile frontend, REST APIs with FastAPI, cloud infrastructure,
               push notifications, analytics, and admin tools. One team, end to end.
             </p>
           </div>

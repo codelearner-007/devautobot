@@ -1,1 +1,1 @@
-export const appTechItems = ['React Native', 'Flutter', 'Firebase', 'Supabase', 'Node.js', 'Socket.io', 'Expo', 'Google Play', 'App Store'];
+export const appTechItems = ['React Native', 'Expo', 'Expo Router', 'EAS Build', 'FastAPI', 'Supabase', 'PostgreSQL', 'Render', 'Google Play'];

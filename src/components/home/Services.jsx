@@ -15,8 +15,8 @@ const services = [
     features: [
       'Custom websites & landing pages',
       'Full-stack web applications',
-      'E-commerce stores (Shopify/Custom)',
-      'CMS integration (WordPress/Sanity)',
+      'Custom e-commerce stores',
+      'SaaS platforms & admin dashboards',
       'Progressive Web Apps (PWA)',
       'API development & integration',
     ],
@@ -30,8 +30,8 @@ const services = [
     description:
       'We build iOS and Android apps that are simple, fast, and reliable. From first version to full product — we handle the build so you can focus on your users.',
     features: [
-      'Cross-platform apps (Flutter/React Native)',
-      'Native iOS & Android development',
+      'Cross-platform apps (React Native / Expo)',
+      'Android & iOS from one codebase',
       'App Store & Play Store publishing',
       'Backend & cloud infrastructure',
       'Push notifications & analytics',

@@ -2,6 +2,9 @@
 
 @import "tailwindcss";
 
+/* dark: follows the next-themes class toggle, not the OS setting */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ─── Design Tokens ────────────────────────────────────────────────── */
 @theme {
   --font-heading: 'Syne', sans-serif;
@@ -96,8 +99,37 @@
   }
 }
 
+/* ─── Portfolio project brands (values copied from each project's own theme) ─── */
+/* --brand: fill, --brand-ink: text on the fill, --brand-text: brand-coloured text on the page */
+.brand-bookvault { --brand: oklch(0.56 0.16 50); --brand-ink: oklch(0.985 0.01 50); --brand-text: oklch(0.56 0.16 50); }
+.dark .brand-bookvault { --brand: oklch(0.76 0.15 55); --brand-ink: oklch(0.18 0.04 55); --brand-text: oklch(0.76 0.15 55); }
+.brand-ultimate-cashbook { --brand: #39aaaa; --brand-ink: #ffffff; --brand-text: #2b8080; }
+.dark .brand-ultimate-cashbook { --brand-text: #39aaaa; }
+/* Thrift's lime is unreadable as text on light pages, so light mode uses its ink colour */
+.brand-thrift-by-sheri { --brand: #d4ff3f; --brand-ink: #0b0b0d; --brand-text: #0b0b0d; }
+.dark .brand-thrift-by-sheri { --brand-text: #d4ff3f; }
+
 /* ─── Component classes ───────────────────────────────────────────── */
 @layer components {
+
+  .btn-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--brand-ink);
+    background: var(--brand);
+    box-shadow: 0 4px 20px color-mix(in oklch, var(--brand) 30%, transparent);
+    transition: all 0.3s ease;
+  }
+  .btn-brand:hover {
+    box-shadow: 0 8px 32px color-mix(in oklch, var(--brand) 50%, transparent);
+    transform: translateY(-2px);
+  }
 
   /* Gradient text — dark-cyan to lighter-cyan */
   .gradient-text {

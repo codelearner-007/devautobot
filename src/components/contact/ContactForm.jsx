@@ -23,7 +23,7 @@ const services = [
   'Web Development (Website / Landing Page)',
   'Web Development (Full-Stack Web App)',
   'Web Development (E-Commerce Store)',
-  'App Development (Flutter / React Native)',
+  'App Development (React Native / Expo)',
   'App Development (PWA)',
   'Both Web & App Development',
   'Not Sure Yet',

@@ -72,12 +72,13 @@ src/
 │   │   ├── Pricing.jsx
 │   │   ├── CTABanner.jsx
 │   │   └── portfolio/
-│   │       ├── ProjectCarousel.jsx      # Auto-playing, swipeable preview slider
-│   │       └── BookVaultSummaryMock.jsx # Coded mock of the BookVault Summary screen
+│   │       ├── ProjectShowcase.jsx      # One project row; variant full (home) / web / app (service pages)
+│   │       └── ScreenSlider.jsx         # Auto-playing, swipeable screenshot slider (light/dark images)
 │   ├── layout/
 │   │   ├── Navbar.jsx
 │   │   └── Footer.jsx
 │   ├── services/
+│   │   ├── ServiceProjects.jsx      # "Websites/Apps We Built" section: projects filtered by platform kind
 │   │   ├── WebDevHero.jsx
 │   │   ├── AppDevHero.jsx
 │   │   ├── ServicePricing.jsx
@@ -130,7 +131,7 @@ src/
 2. **Services** — Two service cards: Web Development + App Development
 3. **WhyUs** — 6 differentiator cards (speed, quality, design, ROI, security, support)
 4. **Process** — 5-step delivery process (Discovery → Design → Build → Test → Launch)
-5. **Portfolio** — 2 real project cards from `src/data/portfolio/projects.js`: Ultimate CashBook (mobile app + website, links to ultimatecashbook.app) and BookVault (multi-tenant accounting SaaS, "Open App" links to app.bookvaultpk.workers.dev). Each card's preview is a `ProjectCarousel` (auto-plays every 4s, pauses on hover/focus, swipe/drag, dot buttons, no autoplay with reduced motion). CashBook slides: 3 phone screenshots; BookVault slides: coded Summary screen mock (Balance Sheet + Profit and Loss, sample figures) + logo. Images live in `public/portfolio/`
+5. **Portfolio** — one case-study row per project from `src/data/portfolio/projects.js` (BookVault, Ultimate CashBook, Thrift by Sheri), alternating sides, each in its own brand colour (`.brand-<slug>` variables in `globals.css`, `.btn-brand`). Each row: website screenshots in a browser frame + app screens in an overlapping device frame (`device: 'tablet'` = iPad Pro style tablet, default = iPhone Pro Max style, standing beside the browser and overlapping only its edge; hidden when `appSlides` is empty), platform chips, features, the platforms/services actually used, live link and a "Build Something Similar" link to /contact. Screenshots are real (WebP in `public/portfolio/`), with `srcDark` variants for dark mode. App screens change every 3s
 6. **Testimonials** — 6 client testimonials in a 3-column grid
 7. **Pricing** — 3 pricing tiers (Starter $999 / Professional $2,499 / Enterprise custom)
 8. **CTABanner** — Final call-to-action
@@ -194,3 +195,14 @@ The following services have been completely removed:
 - AI Agents & Automation
 
 All related pages, components, and data files have been deleted.
+
+---
+
+## Service Page Project Sections
+
+- `/services/web-development`: `<ServiceProjects kind="web" />` after the services grid. Shows every project with a web platform (BookVault, Ultimate CashBook, Thrift by Sheri) with only the browser frame, web chips, web stack (`stack.web`) and web links (labelled "Visit Website"/"Visit Shop", never "app").
+- `/services/app-development`: `<ServiceProjects kind="app" />` after the capabilities grid. Shows projects with an app platform (BookVault, Ultimate CashBook) with only the device frame, app chips, app stack (`stack.app`) and the Google Play badge ("Not live yet" until `playStore.live`).
+
+## Stack Shown on the Site
+
+Matches what the portfolio projects actually use: Next.js, React, Tailwind CSS, React Native (Expo, Expo Router, EAS), FastAPI, Supabase / PostgreSQL, Vercel, Cloudflare Workers + R2, Render. Flutter, Firebase, Node.js, Socket.io, Shopify, WordPress, Sanity and GraphQL were removed.

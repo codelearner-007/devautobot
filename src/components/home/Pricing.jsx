@@ -52,7 +52,7 @@ const plans = [
       'Unlimited pages / screens',
       'Complex integrations (ERP, CRM)',
       'Multi-role user systems',
-      'Real-time features (Socket.io)',
+      'Real-time features (WebSockets)',
       'Custom infrastructure & DevOps',
       'Dedicated project manager',
       '12 months support & maintenance',

@@ -56,7 +56,7 @@ export const metadata = {
     'custom website design',
     'Next.js development',
     'React development',
-    'Flutter app development',
+    'React Native app development',
     'web design Pakistan',
     'software development Lahore',
     'full stack development',
