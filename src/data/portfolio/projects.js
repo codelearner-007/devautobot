@@ -14,7 +14,7 @@ export const projects = [
     title: 'BookVault',
     tagline: 'Online bookkeeping SaaS for small businesses',
     platforms: [{ name: 'SaaS Web App', kind: 'web', live: true }, { name: 'Android App', kind: 'app', live: false }],
-    domain: 'app.bookvaultpk.workers.dev',
+    domain: 'bookvaultapp.com',
     description:
       'A hosted, multi-tenant accounting platform with proper double-entry books. Owners run several businesses from one account, switch modules on per business and give each team member exactly the access they need. An Android app on the same backend and permissions is in development.',
     features: [
@@ -41,7 +41,7 @@ export const projects = [
       { src: '/portfolio/bookvault-tab-add-user.webp', alt: 'BookVault on a tablet: adding a user with per-tab access' },
       { src: '/portfolio/bookvault-tab-create-business.webp', alt: 'BookVault Android app: creating a business with a ready chart of accounts' },
     ],
-    links: [{ label: 'Visit Website', href: 'https://app.bookvaultpk.workers.dev' }],
+    links: [{ label: 'Visit Website', href: 'https://bookvaultapp.com' }],
     playStore: { live: false },
   },
   {
