@@ -1,6 +1,7 @@
 /**
  * Real projects shown in the home page Portfolio section.
  * webSlides: 16:9 website screenshots shown in a browser frame (`srcDark` is used in dark mode).
+ * appSlides also take `srcDark`, so a device follows the site's light/dark mode like the browser does.
  * appSlides: app screens in a device frame; empty hides the device.
  *   device 'phone' (default): 664x1334 screens with their own status bar. device 'tablet': 800x1280 (10:16) Android screens.
  * platforms: { name, kind: 'web' | 'app', live } - not-live platforms show as 'Coming soon'.
@@ -35,11 +36,11 @@ export const projects = [
     ],
     device: 'tablet',
     appSlides: [
-      { src: '/portfolio/bookvault-tab-summary.webp', alt: 'BookVault on a tablet: business Summary with Balance Sheet' },
-      { src: '/portfolio/bookvault-tab-new-invoice.webp', alt: 'BookVault on a tablet: new sales invoice' },
-      { src: '/portfolio/bookvault-tab-reports.webp', alt: 'BookVault on a tablet: reports library' },
-      { src: '/portfolio/bookvault-tab-add-user.webp', alt: 'BookVault on a tablet: adding a user with per-tab access' },
-      { src: '/portfolio/bookvault-tab-create-business.webp', alt: 'BookVault Android app: creating a business with a ready chart of accounts' },
+      { src: '/portfolio/bookvault-tab-summary-light.webp', srcDark: '/portfolio/bookvault-tab-summary-dark.webp', alt: 'BookVault on a tablet: business Summary with Balance Sheet' },
+      { src: '/portfolio/bookvault-tab-new-invoice-light.webp', srcDark: '/portfolio/bookvault-tab-new-invoice-dark.webp', alt: 'BookVault on a tablet: new sales invoice' },
+      { src: '/portfolio/bookvault-tab-reports-light.webp', srcDark: '/portfolio/bookvault-tab-reports-dark.webp', alt: 'BookVault on a tablet: reports library' },
+      { src: '/portfolio/bookvault-tab-add-user-light.webp', srcDark: '/portfolio/bookvault-tab-add-user-dark.webp', alt: 'BookVault on a tablet: adding a user with per-tab access' },
+      { src: '/portfolio/bookvault-tab-create-business-light.webp', srcDark: '/portfolio/bookvault-tab-create-business-dark.webp', alt: 'BookVault Android app: creating a business with a ready chart of accounts' },
     ],
     links: [{ label: 'Visit Website', href: 'https://bookvaultapp.com' }],
     playStore: { live: false },
@@ -68,9 +69,9 @@ export const projects = [
       { src: '/portfolio/cashbook-site.webp', alt: 'Ultimate CashBook marketing website' },
     ],
     appSlides: [
-      { src: '/portfolio/cashbook-app-books.webp', alt: 'Ultimate CashBook: list of cash books with total balance' },
-      { src: '/portfolio/cashbook-app-cash-in.webp', alt: 'Ultimate CashBook: adding a cash in entry' },
-      { src: '/portfolio/cashbook-app-reports.webp', alt: 'Ultimate CashBook: reports with PDF and Excel export' },
+      { src: '/portfolio/cashbook-app-books-light.webp', srcDark: '/portfolio/cashbook-app-books-dark.webp', alt: 'Ultimate CashBook: list of cash books with total balance' },
+      { src: '/portfolio/cashbook-app-cash-in-light.webp', srcDark: '/portfolio/cashbook-app-cash-in-dark.webp', alt: 'Ultimate CashBook: adding a cash in entry' },
+      { src: '/portfolio/cashbook-app-reports-light.webp', srcDark: '/portfolio/cashbook-app-reports-dark.webp', alt: 'Ultimate CashBook: reports with PDF and Excel export' },
     ],
     links: [{ label: 'Visit Website', href: 'https://ultimatecashbook.com' }],
     playStore: { live: false },
